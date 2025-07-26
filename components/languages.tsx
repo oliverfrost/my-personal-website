@@ -1,9 +1,5 @@
 import React from 'react';
 
 export default function Languages() {
-  return (
-    <div>
-      {/* Languages Component */}
-    </div>
-  );
+  return <div>{/* Languages Component */}</div>;
 }

@@ -1,9 +1,5 @@
 import React from 'react';
 
 export default function Education() {
-  return (
-    <div>
-      {/* Education Component */}
-    </div>
-  );
+  return <div>{/* Education Component */}</div>;
 }
