@@ -5,10 +5,12 @@ import Skills from '@/components/skills';
 import WorkExperience from '@/components/work-experience';
 import Education from '@/components/education';
 import Greeting from '@/components/greeting';
+import Summary from '@/components/summary';
 
 export default function Home() {
   return (
-    <div>
+    <main className='p-4'>
+      <Summary />
       <Greeting />
       <PersonalInformation />
       <Languages />
@@ -16,6 +18,6 @@ export default function Home() {
       <Skills />
       <WorkExperience />
       <Education />
-    </div>
+    </main>
   );
 }
