@@ -1,4 +1,9 @@
 import React from 'react';
+import LinkedInIcon from './icons/linkedin';
+import PersonIcon from './icons/person';
+import MapMarkerIcon from './icons/map-marker';
+import PhoneIcon from './icons/phone';
+import AtIcon from './icons/at';
 
 export default function PersonalInformation() {
   return (
@@ -9,27 +14,27 @@ export default function PersonalInformation() {
 
       <ul className="space-y-3">
         <li className="flex items-center space-x-3">
-          <img src="/person-filled.svg" width="16" height="16" alt="" />
+          <PersonIcon className="w-6 h-6" variant="dark" />
           <span>Serhii Kholodnyi</span>
         </li>
 
         <li className="flex items-center space-x-3">
-          <img src="/map-marker.svg" width="16" height="16" alt="" />
+          <MapMarkerIcon className="w-6 h-6" variant="dark" />
           <span>Tallinn, Estonia</span>
         </li>
 
         <li className="flex items-center space-x-3">
-          <img src="/phone.svg" width="16" height="16" alt="" />
-          <span>+372 5190 0494</span>
+          <PhoneIcon className="w-6 h-6" variant="dark" />
+          <a href="tel:+37251900494">+372 5190 0494</a>
         </li>
 
         <li className="flex items-center space-x-3">
-          <img src="/at.svg" width="16" height="16" alt="" />
-          <span>serg.holodny@gmail.com</span>
+          <AtIcon className="w-6 h-6" variant="dark" />
+          <a href="mailto:serg.holodny@gmail.com">serg.holodny@gmail.com</a>
         </li>
 
         <li className="flex items-center space-x-3">
-          <img src="/linkedin.svg" width="16" height="16" alt="" />
+          <LinkedInIcon className="dark" />
           <span>linkedin.com/in/serhii-kholodnyi</span>
         </li>
       </ul>
