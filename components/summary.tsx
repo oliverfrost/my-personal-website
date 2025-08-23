@@ -1,33 +1,34 @@
 import React from 'react';
-import Image from 'next/image'
-import  StackOverflowIcon  from './icons/stackoverflow';
+import StackOverflowIcon  from './icons/stackoverflow';
+import LinkedInIcon from './icons/linkedin';
+import GithubIcon from './icons/github';
+import LeetCodeIcon from './icons/leetcode';
 
-export default function Summary() {
-  return <section className="p-4 bg-navy-blue">
-    <h1 className="text-3xl font-bold uppercase text-white">Serhii Kholodnyi</h1>
+export default function Summary({ className }: { className?: string }) {
+  return <section className={`p-4 bg-navy-blue ${className || ''}`}>
+    <h1 className="mb-4 text-3xl font-bold uppercase text-white">Serhii Kholodnyi</h1>
 
     <span className='block text-white'>Team Lead</span>
-    <span className='block text-white'>Senior Full-Stack Developer</span>
+    <span className='mb-4 block text-white'>Senior Full-Stack Developer</span>
 
-    <ul className="flex flex-row gap-4 list-none p-0">
+    <ul className="flex flex-row gap-4 justify-between list-none p-0">
       <li>
         <a href="https://www.linkedin.com/in/serhii-kholodnyi" target="_blank">
-        <Image className="text-white" src="/linkedin.svg" alt="LinkedIn" width="32" height="32" />
+        <LinkedInIcon className="light" />
         </a>
       </li>
       <li>
-        <a href="https://stackoverflow.com/users/4520707/oliverfrost21">
-        {/* <Image src="/stackoverflow.svg" alt="StackOverflow" width="32" height="32" /> */}
+        <a href="https://stackoverflow.com/users/4520707/oliverfrost21" target="_blank">
         <StackOverflowIcon className="light" />
         </a>
       </li>
       <li>
-        <a href=""></a>
-        <Image src="/github.svg" alt="GitHub" width="32" height="32" />
+        <a href="https://github.com/oliverfrost" target="_blank"></a>
+        <GithubIcon className="light" />
       </li>
       <li>
-        <a href=""></a>
-        <Image src="/leetcode.svg" alt="LeetCode" width="32" height="32" />
+        <a href="https://leetcode.com/u/oliverfrost21/" target="_blank"></a>
+        <LeetCodeIcon className="light" />
       </li>
     </ul>
 

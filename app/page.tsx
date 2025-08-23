@@ -10,7 +10,7 @@ import Summary from '@/components/summary';
 export default function Home() {
   return (
     <main className='p-4'>
-      <Summary />
+      <Summary className="mb-4" />
       <Greeting />
       <PersonalInformation />
       <Languages />
