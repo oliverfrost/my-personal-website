@@ -19,16 +19,16 @@ export default function Summary({ className }: { className?: string }) {
       </li>
       <li>
         <a href="https://stackoverflow.com/users/4520707/oliverfrost21" target="_blank">
-        <StackOverflowIcon className="light" />
+        <StackOverflowIcon variant="light" />
         </a>
       </li>
       <li>
         <a href="https://github.com/oliverfrost" target="_blank"></a>
-        <GithubIcon className="light" />
+        <GithubIcon variant="light" />
       </li>
       <li>
         <a href="https://leetcode.com/u/oliverfrost21/" target="_blank"></a>
-        <LeetCodeIcon className="light" />
+        <LeetCodeIcon variant="light" />
       </li>
     </ul>
 
