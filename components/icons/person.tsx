@@ -1,7 +1,7 @@
 const PersonIcon = ({ className, variant }: { className?: string; variant?: 'light' | 'dark' })  => (
     <svg className={`${className || ''}`}  width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M8.33289 0.702148C10.3095 0.702148 11.905 2.29768 11.905 4.27424C11.905 6.2508 10.3095 7.84633 8.33289 7.84633C6.3563 7.84633 4.76074 6.2508 4.76074 4.27424C4.76074 2.29768 6.3563 0.702148 8.33289 0.702148Z" fill={variant === 'light' ? '#ffffff' : '#404A5D'} stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M8.335 11.4186C13.0979 11.4186 16.67 13.8 16.67 14.9907V17.3721H0V14.9907C0 13.8 3.57214 11.4186 8.335 11.4186Z" fill={variant === 'light' ? '#ffffff' : '#404A5D'} stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M8.33289 0.702148C10.3095 0.702148 11.905 2.29768 11.905 4.27424C11.905 6.2508 10.3095 7.84633 8.33289 7.84633C6.3563 7.84633 4.76074 6.2508 4.76074 4.27424C4.76074 2.29768 6.3563 0.702148 8.33289 0.702148Z" fill={variant === 'light' ? '#ffffff' : '#404A5D'} stroke="white" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M8.335 11.4186C13.0979 11.4186 16.67 13.8 16.67 14.9907V17.3721H0V14.9907C0 13.8 3.57214 11.4186 8.335 11.4186Z" fill={variant === 'light' ? '#ffffff' : '#404A5D'} stroke="white" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>    
 )
 
