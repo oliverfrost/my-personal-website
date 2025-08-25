@@ -7,8 +7,8 @@ import AtIcon from './icons/at';
 
 export default function PersonalInformation() {
   return (
-    <div className="mx-auto max-w-md p-6">
-      <h2 className="mb-4 text-2xl font-bold">
+    <div className="mx-auto max-w-md">
+      <h2 className="mb-4 text-2xl font-bold border-b-1">
         Personal Information
       </h2>
 
@@ -34,7 +34,7 @@ export default function PersonalInformation() {
         </li>
 
         <li className="flex items-center space-x-3">
-          <LinkedInIcon className="dark" />
+          <LinkedInIcon className="w-6 h-6" variant="dark" />
           <span>linkedin.com/in/serhii-kholodnyi</span>
         </li>
       </ul>

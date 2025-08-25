@@ -14,7 +14,7 @@ export default function Summary({ className }: { className?: string }) {
     <ul className="flex flex-row gap-4 justify-between list-none p-0">
       <li>
         <a href="https://www.linkedin.com/in/serhii-kholodnyi" target="_blank">
-        <LinkedInIcon className="light" />
+        <LinkedInIcon variant="light" />
         </a>
       </li>
       <li>
