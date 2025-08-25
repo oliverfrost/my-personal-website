@@ -50,7 +50,6 @@ export default function WorkExperience() {
           company={experience.company}
           role={experience.role}
           responsibilities={experience.responsibilities}
-          isLast={index === workExperience.length - 1}
         />
       ))}
     </div>

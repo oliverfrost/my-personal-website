@@ -5,7 +5,6 @@ interface WorkExperienceItemProps {
   company: string;
   role: string;
   responsibilities: string[];
-  isLast?: boolean;
 }
 
 export default function WorkExperienceItem({ 
@@ -13,18 +12,15 @@ export default function WorkExperienceItem({
   company, 
   role, 
   responsibilities, 
-  isLast = false 
 }: WorkExperienceItemProps) {
   return (
     <div className="relative flex">
       {/* Timeline line and dot */}
       <div className="flex flex-col items-center mr-4">
         {/* Timeline dot */}
-        <div className="w-3 h-3 rounded-full bg-navy-blue shadow-sm"></div>
-        {/* Vertical line - only show if not the last item */}
-        {!isLast && (
-          <div className="w-0.5 bg-slate-300 flex-grow mt-2 mb-2 min-h-[120px]"></div>
-        )}
+        <div className="w-1 h-1 rounded-full bg-navy-blue shadow-sm"></div>
+        {/* Vertical line */}
+        <div className="w-0.5 bg-slate-300 flex-grow mt-2 mb-2 min-h-[120px]"></div>
       </div>
 
       {/* Content */}
