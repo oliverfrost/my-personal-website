@@ -6,6 +6,8 @@ import WorkExperience from '@/components/work-experience';
 import Education from '@/components/education';
 import Greeting from '@/components/greeting';
 import Summary from '@/components/summary';
+import DomainExpertise from '@/components/domain-expertise';
+import ContactForm from '@/components/contact-form';
 
 export default function Home() {
   return (
@@ -18,6 +20,8 @@ export default function Home() {
       <Skills />
       <WorkExperience />
       <Education />
+      <DomainExpertise />
+      <ContactForm />       
     </main>
   );
 }
