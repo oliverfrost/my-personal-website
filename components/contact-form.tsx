@@ -3,6 +3,7 @@
 import React, { useRef } from 'react';
 
 export default function ContactForm() {
+    const isOpenForNewOpportunities = true;
     const formRef = useRef<HTMLFormElement>(null);
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -25,12 +26,14 @@ export default function ContactForm() {
         <div className="mx-auto max-w-md">
             <div className="bg-gray-50 rounded-3xl p-8 border border-gray-200">
                 {/* Status Badge */}
-                <div className="flex justify-center mb-6">
-                    <div className="inline-flex items-center px-6 py-2 bg-white border-2 border-green-600 rounded-full">
-                        <span className="text-green-600 mr-2">✓</span>
-                        <span className="text-green-600 font-medium">Open for new opportunities</span>
+                {isOpenForNewOpportunities && (
+                    <div className="flex justify-center mb-6">
+                        <div className="inline-flex items-center px-6 py-2 bg-white border-2 border-green-600 rounded-full">
+                            <span className="text-green-600 mr-2">✓</span>
+                            <span className="text-green-600 font-medium">Open for new opportunities</span>
+                        </div>
                     </div>
-                </div>
+                )}
 
                 {/* Title */}
                 <h2 className="text-3xl font-light text-gray-600 text-center mb-8">
@@ -38,7 +41,7 @@ export default function ContactForm() {
                 </h2>
 
                 {/* Form */}
-                <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+                <form ref={formRef} className="space-y-6" onSubmit={handleSubmit}>
                     {/* Full Name */}
                     <div>
                         <label htmlFor="fullName" className="block text-gray-600 font-medium mb-2">
