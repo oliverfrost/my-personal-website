@@ -11,17 +11,22 @@ import ContactForm from '@/components/contact-form';
 
 export default function Home() {
   return (
-    <main className='p-4'>
-      <Summary className="mb-4" />
-      <Greeting />
-      <PersonalInformation />
-      <Languages />
-      <HardSkills />
-      <Skills />
-      <WorkExperience />
-      <Education />
-      <DomainExpertise />
-      <ContactForm />       
+    <main className='p-4 lg:flex lg:gap-8'>
+      <div className="mb-4 lg:mb-0 lg:w-1/3">
+        <Summary />
+      </div>
+
+      <div className="lg:w-2/3">
+        <Greeting />
+        <PersonalInformation />
+        <Languages />
+        <HardSkills />
+        <Skills />
+        <WorkExperience />
+        <Education />
+        <DomainExpertise />
+        <ContactForm />
+      </div>
     </main>
   );
 }
