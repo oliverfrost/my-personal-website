@@ -1,6 +1,9 @@
+import ComputerNetworksIcon from "./icons/computer-networks-icon";
+import EducationIcon from "./icons/education-icon";
 import FinanceIcon from "./icons/finance";
 import HealthcareIcon from "./icons/healthcare-icon";
 import InsuranceIcon from "./icons/insurance";
+import SeoIcon from "./icons/seo-icon";
 import SocialNetworksIcon from "./icons/social-networks-icon";
 
 export default function DomainExpertise() {
@@ -41,21 +44,21 @@ export default function DomainExpertise() {
 
                 <div className="flex items-center space-x-3">
                     <div className="w-8 h-8 flex-shrink-0">
-                        {/* Education icon will be added here */}
+                        <EducationIcon variant="dark" />
                     </div>
                     <span className="text-gray-700 font-medium">Education</span>
                 </div>
 
                 <div className="flex items-center space-x-3">
                     <div className="w-8 h-8 flex-shrink-0">
-                        {/* SEO icon will be added here */}
+                        <SeoIcon variant="dark" />
                     </div>
                     <span className="text-gray-700 font-medium">SEO</span>
                 </div>
 
                 <div className="flex items-center space-x-3">
                     <div className="w-8 h-8 flex-shrink-0">
-                        {/* Computer Networks icon will be added here */}
+                        <ComputerNetworksIcon variant="dark" />
                     </div>
                     <span className="text-gray-700 font-medium">Computer Networks</span>
                 </div>
