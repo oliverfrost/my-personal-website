@@ -1,0 +1,7 @@
+const MoonIcon = ({ className, variant }: { className?: string; variant?: 'light' | 'dark' }) => (
+    <svg className={`${className || ''}`} width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.3428 12.5304C16.3074 12.9986 15.1581 13.2593 13.9479 13.2593C9.39295 13.2593 5.70041 9.56676 5.70041 5.01178C5.70041 3.80159 5.96107 2.65227 6.4293 1.61691C3.56773 2.91102 1.57666 5.79076 1.57666 9.13554C1.57666 13.6905 5.2692 17.383 9.82417 17.383C13.1689 17.383 16.0487 15.392 17.3428 12.5304Z" stroke="#404A5D" strokeWidth="2.36492" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>    
+)
+
+export default MoonIcon;
