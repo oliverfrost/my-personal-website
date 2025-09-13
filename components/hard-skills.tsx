@@ -18,7 +18,7 @@ export default function HardSkills() {
       Hard Skills
     </h2>
 
-    <div className="mt-6">
+    <div className="mt-6 grid gap-4 grid-cols-1 lg:grid-cols-2 lg:gap-6">
       {skills.map((skillData, index) => (
         <SkillSlider
           key={index}
