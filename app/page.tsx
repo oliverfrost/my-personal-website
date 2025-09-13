@@ -9,6 +9,7 @@ import Summary from '@/components/summary';
 import DomainExpertise from '@/components/domain-expertise';
 import ContactForm from '@/components/contact-form';
 import FullSizeThemeSwitcher from '@/components/full-size-theme-switcher';
+import LanguageSwitcher from '@/components/language-switcher';
 
 export default function Home() {
   return (
@@ -18,7 +19,8 @@ export default function Home() {
       </div>
 
       <div className="flex flex-col gap-4 lg:w-2/3 lg:gap-8">
-        <div className="hidden lg:flex lg:justify-end lg:mb-2">
+        <div className="hidden lg:flex lg:justify-end lg:mb-2 lg:gap-2">
+          <LanguageSwitcher />
           <FullSizeThemeSwitcher />
         </div>
         <Greeting />
