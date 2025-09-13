@@ -8,7 +8,7 @@ export default function ContactForm() {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        
+
         if (formRef.current) {
             const formData = new FormData(formRef.current);
             const data = {
@@ -16,7 +16,7 @@ export default function ContactForm() {
                 email: formData.get('email') as string,
                 message: formData.get('message') as string
             };
-            
+
             // Handle form submission here
             console.log('Form submitted:', data);
         }

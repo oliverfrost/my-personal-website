@@ -17,21 +17,21 @@ export default function Home() {
         <Summary />
       </div>
 
-      <div className="flex flex-col gap-4 lg:w-2/3 lg:gap-14">
-      <div className="hidden lg:flex lg:justify-end lg:mb-2">
-        <FullSizeThemeSwitcher />
-      </div>
+      <div className="flex flex-col gap-4 lg:w-2/3 lg:gap-8">
+        <div className="hidden lg:flex lg:justify-end lg:mb-2">
+          <FullSizeThemeSwitcher />
+        </div>
         <Greeting />
 
-       <div className="lg:flex lg:gap-4">
-        <div className="lg:w-1/2">
-          <PersonalInformation />
-        </div>
-        <div className="lg:w-1/2">
-          <Languages />
+        <div className="lg:flex lg:gap-4">
+          <div className="lg:w-1/2">
+            <PersonalInformation />
+          </div>
+          <div className="lg:w-1/2">
+            <Languages />
+          </div>
         </div>
 
-       </div>
         <HardSkills />
         <Skills />
         <WorkExperience />

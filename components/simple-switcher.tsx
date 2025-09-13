@@ -7,8 +7,8 @@ interface SimpleSwitcherProps {
   onChange?: (checked: boolean) => void;
 }
 
-export default function SimpleSwitcher({ 
-  checked = false, 
+export default function SimpleSwitcher({
+  checked = false,
   onChange
 }: SimpleSwitcherProps) {
   const [isChecked, setIsChecked] = useState(checked);
@@ -30,8 +30,8 @@ export default function SimpleSwitcher({
       <div
         className={`
           relative w-14 h-8 rounded-full transition-colors duration-200 ease-in-out
-          ${isChecked 
-            ? 'bg-white' 
+          ${isChecked
+            ? 'bg-white'
             : 'bg-slate-600'
           }
         `}
@@ -40,7 +40,7 @@ export default function SimpleSwitcher({
           className={`
             absolute top-1 w-6 h-6 bg-white rounded-full shadow-md
             transition-transform duration-200 ease-in-out
-            ${isChecked ? 'translate-x-1' : 'translate-x-6' }
+            ${isChecked ? 'translate-x-1' : 'translate-x-6'}
           `}
         />
       </div>

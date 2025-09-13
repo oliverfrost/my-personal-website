@@ -23,7 +23,7 @@ export default function DomainExpertise() {
 
                 <div className="flex items-center space-x-3">
                     <div className="w-8 h-8 flex-shrink-0">
-                       <InsuranceIcon variant="dark" />
+                        <InsuranceIcon variant="dark" />
                     </div>
                     <span className="text-gray-700 font-medium">Insurance</span>
                 </div>
@@ -37,7 +37,7 @@ export default function DomainExpertise() {
 
                 <div className="flex items-center space-x-3">
                     <div className="w-8 h-8 flex-shrink-0">
-                       <SocialNetworksIcon variant="dark" />
+                        <SocialNetworksIcon variant="dark" />
                     </div>
                     <span className="text-gray-700 font-medium">Social Networks</span>
                 </div>

@@ -14,13 +14,13 @@ const skills = [
 
 export default function HardSkills() {
   return <div className="w-full">
-    <h2 className="mb-4 text-2xl font-bold border-b-1">
+    <h2 className="mb-4 text-2xl font-bold border-b-1 uppercase">
       Hard Skills
     </h2>
 
     <div className="mt-6">
       {skills.map((skillData, index) => (
-        <SkillSlider 
+        <SkillSlider
           key={index}
           skill={skillData.skill}
           percentage={skillData.percentage}
