@@ -11,15 +11,23 @@ import ContactForm from '@/components/contact-form';
 
 export default function Home() {
   return (
-    <main className='p-4 lg:flex lg:gap-8'>
+    <main className='w-full p-4 lg:flex lg:gap-14'>
       <div className="mb-4 lg:mb-0 lg:w-1/3">
         <Summary />
       </div>
 
-      <div className="lg:w-2/3">
+      <div className="flex flex-col gap-4 lg:w-2/3 lg:gap-14">
         <Greeting />
-        <PersonalInformation />
-        <Languages />
+
+       <div className="lg:flex lg:gap-4">
+        <div className="lg:w-1/2">
+          <PersonalInformation />
+        </div>
+        <div className="lg:w-1/2">
+          <Languages />
+        </div>
+
+       </div>
         <HardSkills />
         <Skills />
         <WorkExperience />

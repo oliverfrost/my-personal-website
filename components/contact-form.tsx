@@ -23,7 +23,7 @@ export default function ContactForm() {
     };
 
     return (
-        <div className="mx-auto max-w-md">
+        <div className="w-full">
             <div className="bg-gray-50 rounded-3xl p-8 border border-gray-200">
                 {/* Status Badge */}
                 {isOpenForNewOpportunities && (

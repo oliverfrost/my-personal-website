@@ -7,7 +7,7 @@ import AtIcon from './icons/at';
 
 export default function PersonalInformation() {
   return (
-    <div className="mx-auto max-w-md">
+    <div className="w-full mb-4 lg:mb-0">
       <h2 className="mb-4 text-2xl font-bold border-b-1">
         Personal Information
       </h2>

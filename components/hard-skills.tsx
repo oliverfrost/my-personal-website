@@ -2,16 +2,18 @@ import React from 'react';
 import SkillSlider from './skill-slider';
 
 const skills = [
-  { skill: 'JavaScript', percentage: 76 },
-  { skill: 'React', percentage: 80 },
-  { skill: 'TypeScript', percentage: 36 },
-  { skill: 'Angular', percentage: 50 },
-  { skill: 'Java', percentage: 80 },
-  { skill: 'Vue.js', percentage: 80 }
+  { skill: 'JavaScript', percentage: 86 },
+  { skill: 'TypeScript', percentage: 80 },
+  { skill: 'Angular', percentage: 80 },
+  { skill: 'HTML', percentage: 90 },
+  { skill: 'CSS', percentage: 76 },
+  { skill: 'React', percentage: 65 },
+  { skill: 'Vue.js', percentage: 55 },
+  { skill: 'Java', percentage: 50 },
 ];
 
 export default function HardSkills() {
-  return <div className="mx-auto max-w-md">
+  return <div className="w-full">
     <h2 className="mb-4 text-2xl font-bold border-b-1">
       Hard Skills
     </h2>

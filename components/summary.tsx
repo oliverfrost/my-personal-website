@@ -23,12 +23,14 @@ export default function Summary({ className }: { className?: string }) {
         </a>
       </li>
       <li>
-        <a href="https://github.com/oliverfrost" target="_blank"></a>
+        <a href="https://github.com/oliverfrost" target="_blank">
         <GithubIcon variant="light" />
+        </a>
       </li>
       <li>
-        <a href="https://leetcode.com/u/oliverfrost21/" target="_blank"></a>
+        <a href="https://leetcode.com/u/oliverfrost21/" target="_blank">
         <LeetCodeIcon variant="light" />
+        </a>
       </li>
     </ul>
 
