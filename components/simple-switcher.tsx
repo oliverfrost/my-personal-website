@@ -38,9 +38,9 @@ export default function SimpleSwitcher({
       >
         <div
           className={`
-            absolute top-1 w-6 h-6 bg-white rounded-full shadow-md
+            absolute top-1 w-6 h-6 rounded-full shadow-md
             transition-transform duration-200 ease-in-out
-            ${isChecked ? 'translate-x-1' : 'translate-x-6'}
+            ${isChecked ? 'translate-x-6 bg-slate-600' : 'translate-x-1 bg-white'}
           `}
         />
       </div>
