@@ -34,5 +34,8 @@ export default function Summary({ className }: { className?: string }) {
       </li>
     </ul>
 
+    <div className='py-4'>
+      <button className='w-full bg-white text-navy-blue px-4 py-2 rounded'>Download CV</button>
+    </div>
   </section>;
 }
