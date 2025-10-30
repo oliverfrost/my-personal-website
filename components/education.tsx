@@ -62,7 +62,7 @@ export default function Education() {
               </div>
 
               {/* Large screen layout */}
-              <div className="hidden lg:flex lg:items-center lg:justify-between">
+              <div className="hidden lg:flex lg:flex-col lg:items-start lg:justify-between">
                 {/* Date badge */}
                 <div className="flex-shrink-0 bg-slate-600 text-white px-4 py-2 text-sm mr-6">
                   {education.period}

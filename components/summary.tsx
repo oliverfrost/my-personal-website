@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import StackOverflowIcon  from './icons/stackoverflow';
 import LinkedInIcon from './icons/linkedin';
@@ -5,6 +7,16 @@ import GithubIcon from './icons/github';
 import LeetCodeIcon from './icons/leetcode';
 
 export default function Summary({ className }: { className?: string }) {
+  const downloadCV = () => {
+    const link = document.createElement('a');
+
+    link.href = '/docs/Serhii_Kholodnyi_Front-End-Dev.pdf';
+    link.download = 'Serhii_Kholodnyi_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return <section className={`p-4 bg-navy-blue ${className || ''}`}>
     <h1 className="mb-4 text-3xl font-bold uppercase text-white">Serhii Kholodnyi</h1>
 
@@ -35,7 +47,7 @@ export default function Summary({ className }: { className?: string }) {
     </ul>
 
     <div className='py-4'>
-      <button className='w-full bg-white text-navy-blue px-4 py-2 rounded'>Download CV</button>
+      <button onClick={downloadCV} className='w-full bg-white text-navy-blue px-4 py-2 rounded'>Download CV</button>
     </div>
   </section>;
 }
