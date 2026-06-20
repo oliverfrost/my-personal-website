@@ -14,7 +14,10 @@ export default function Education() {
 
       <div className="mt-6">
         {education.map((entry) => (
-          <div key={entry.university + entry.degreeKey} className="relative flex lg:items-start">
+          <div
+            key={entry.university + entry.degreeKey}
+            className="relative flex lg:items-start"
+          >
             {/* Desktop-only left column: period badge */}
             <div className="hidden lg:flex lg:w-48 lg:flex-shrink-0 lg:pt-1">
               <span className="bg-badge text-badge-foreground inline-block rounded px-3 py-1 text-sm">

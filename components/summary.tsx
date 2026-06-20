@@ -48,7 +48,12 @@ export default function Summary({ className }: { className?: string }) {
           const Icon = iconById[link.id];
           return (
             <li key={link.id}>
-              <a href={link.url} target="_blank" rel="noopener noreferrer" aria-label={labelById[link.id]}>
+              <a
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={labelById[link.id]}
+              >
                 <Icon />
               </a>
             </li>
