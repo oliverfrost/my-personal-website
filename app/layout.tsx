@@ -3,10 +3,29 @@ import './globals.css';
 import { ThemeProvider } from '@/lib/theme/theme-provider';
 import { themeInitScript } from '@/lib/theme/theme-script';
 import { LanguageProvider } from '@/lib/i18n/language-provider';
+import PersonJsonLd from '@/components/person-json-ld';
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com';
+const description =
+  'Serhii Kholodnyi — Senior Frontend Developer and Team Lead with 14+ years in IT. Vue.js, Angular, React, TypeScript, Pinia, and Docker.';
 
 export const metadata: Metadata = {
-  title: 'Kholodnyi Serhii - Frontend Developer',
-  description: '',
+  metadataBase: new URL(siteUrl),
+  title: 'Serhii Kholodnyi — Frontend Developer & Team Lead',
+  description,
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    url: siteUrl,
+    title: 'Serhii Kholodnyi — Frontend Developer & Team Lead',
+    description,
+    siteName: 'Serhii Kholodnyi',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Serhii Kholodnyi — Frontend Developer & Team Lead',
+    description,
+  },
 };
 
 export default function RootLayout({
@@ -19,6 +38,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body>
+        <PersonJsonLd />
         <ThemeProvider>
           <LanguageProvider>{children}</LanguageProvider>
         </ThemeProvider>
