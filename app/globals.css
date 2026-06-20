@@ -1,27 +1,62 @@
 @import 'tailwindcss';
 
+/* Enable class-based dark mode: `.dark` on <html> activates dark tokens */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #fff;
-  --foreground: #171717;
+  /* Light theme */
+  --background: #ffffff;
+  --foreground: #1f2733;
+  --muted: #5b6470;
+  --surface: #404a5d;          /* navy summary panel */
+  --surface-foreground: #ffffff;
+  --border: #e2e5ea;
+  --badge-bg: #404a5d;
+  --badge-foreground: #ffffff;
+  --track: #d6dae0;            /* skill slider track */
+  --track-fill: #404a5d;       /* skill slider fill/handle */
+  --link: #3b82f6;
+  --accent-success: #16a34a;
+  --card-bg: #f8f9fb;
+}
+
+.dark {
+  --background: #404a5d;
+  --foreground: #f3f4f6;
+  --muted: #c2c7d0;
+  --surface: #ffffff;          /* inverted: summary panel becomes light */
+  --surface-foreground: #1f2733;
+  --border: #5b6470;
+  --badge-bg: #ffffff;
+  --badge-foreground: #1f2733;
+  --track: #ffffff;
+  --track-fill: #ffffff;
+  --link: #93c5fd;
+  --accent-success: #4ade80;
+  --card-bg: #4a5568;
 }
 
 @theme inline {
-  --color-navy-blue: #404A5D;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: "source-sans-pro", sans-serif;
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-surface-foreground: var(--surface-foreground);
+  --color-border-base: var(--border);
+  --color-badge: var(--badge-bg);
+  --color-badge-foreground: var(--badge-foreground);
+  --color-track: var(--track);
+  --color-track-fill: var(--track-fill);
+  --color-link: var(--link);
+  --color-success: var(--accent-success);
+  --color-card: var(--card-bg);
+  --color-navy-blue: #404a5d;
+  --font-sans: 'source-sans-pro', sans-serif;
 }
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: source-sans-pro, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }

@@ -13,11 +13,13 @@
           "variants",
           "responsive",
           "screen",
-          "layer"
+          "layer",
+          "theme",
+          "custom-variant"
         ]
       }
     ],
-    "declaration-block-trailing-semicolon": null,
+    "color-hex-length": null,
     "no-descending-specificity": null,
     "function-no-unknown": [
       true,
