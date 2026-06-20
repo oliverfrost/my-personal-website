@@ -28,10 +28,12 @@ export default function Summary({ className }: { className?: string }) {
   const { t } = useTranslation();
 
   const downloadCV = () => {
-    trackEvent('download_cv', { file_name: 'Serhii_Kholodnyi_CV.pdf' });
+    trackEvent('download_cv', {
+      file_name: 'Serhii_Kholodnyi_CV-FullStack-Team-Lead.pdf',
+    });
     const link = document.createElement('a');
-    link.href = '/docs/Serhii_Kholodnyi_Front-End-Dev.pdf';
-    link.download = 'Serhii_Kholodnyi_CV.pdf';
+    link.href = '/docs/Serhii_Kholodnyi_CV-FullStack-Team-Lead.pdf';
+    link.download = 'Serhii_Kholodnyi_CV-FullStack-Team-Lead.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
