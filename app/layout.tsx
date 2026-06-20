@@ -4,6 +4,7 @@ import { ThemeProvider } from '@/lib/theme/theme-provider';
 import { themeInitScript } from '@/lib/theme/theme-script';
 import { LanguageProvider } from '@/lib/i18n/language-provider';
 import PersonJsonLd from '@/components/person-json-ld';
+import Analytics from '@/components/analytics';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com';
 const description =
@@ -39,6 +40,7 @@ export default function RootLayout({
       </head>
       <body>
         <PersonJsonLd />
+        {process.env.NODE_ENV === 'production' && <Analytics />}
         <ThemeProvider>
           <LanguageProvider>{children}</LanguageProvider>
         </ThemeProvider>
