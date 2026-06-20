@@ -58,6 +58,6 @@ export const en = {
     success: 'Thanks! Your message has been sent.',
     error: 'Something went wrong. Please try again or email me directly.',
   },
-} as const;
+};
 
 export type Messages = typeof en;
