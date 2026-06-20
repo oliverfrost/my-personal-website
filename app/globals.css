@@ -29,11 +29,11 @@
   --border: #5b6470;
   --badge-bg: #ffffff;
   --badge-foreground: #1f2733;
-  --track: #ffffff;
-  --track-fill: #ffffff;
+  --track: #5b6470;
+  --track-fill: #e2e5ea;
   --link: #93c5fd;
   --accent-success: #4ade80;
-  --card-bg: #4a5568;
+  --card-bg: #4b566b;
 }
 
 @theme inline {

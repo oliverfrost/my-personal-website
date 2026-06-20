@@ -19,7 +19,7 @@
         ]
       }
     ],
-    "color-hex-length": null,
+    "color-hex-length": "long",
     "no-descending-specificity": null,
     "function-no-unknown": [
       true,
