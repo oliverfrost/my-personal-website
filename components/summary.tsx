@@ -16,6 +16,13 @@ const iconById = {
   leetcode: LeetCodeIcon,
 } as const;
 
+const labelById: Record<string, string> = {
+  linkedin: 'LinkedIn profile',
+  stackoverflow: 'Stack Overflow profile',
+  github: 'GitHub profile',
+  leetcode: 'LeetCode profile',
+};
+
 export default function Summary({ className }: { className?: string }) {
   const { t } = useTranslation();
 
@@ -41,7 +48,7 @@ export default function Summary({ className }: { className?: string }) {
           const Icon = iconById[link.id];
           return (
             <li key={link.id}>
-              <a href={link.url} target="_blank" rel="noopener noreferrer">
+              <a href={link.url} target="_blank" rel="noopener noreferrer" aria-label={labelById[link.id]}>
                 <Icon />
               </a>
             </li>

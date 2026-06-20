@@ -2,10 +2,9 @@
 
 import React, { useState } from 'react';
 import { useTranslation } from '@/lib/i18n/language-provider';
+import { features } from '@/lib/features';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
-
-const isOpenForNewOpportunities = true;
 
 export default function ContactForm() {
   const { t } = useTranslation();
@@ -50,7 +49,7 @@ export default function ContactForm() {
           <h2 className="order-2 text-3xl font-light lg:order-1">
             {t.contact.title}
           </h2>
-          {isOpenForNewOpportunities && (
+          {features.openForOpportunities && (
             <span className="bg-background border-success order-1 inline-flex items-center rounded-full border-2 px-6 py-2 lg:order-2">
               <span className="text-success mr-2">✓</span>
               <span className="text-success font-medium">

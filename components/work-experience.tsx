@@ -13,8 +13,8 @@ export default function WorkExperience() {
         {t.sections.workExperience}
       </h2>
       <div className="mt-6">
-        {workExperience.map((experience, index) => (
-          <WorkExperienceItem key={index} {...experience} />
+        {workExperience.map((experience) => (
+          <WorkExperienceItem key={experience.company + experience.dateRange} {...experience} />
         ))}
       </div>
     </div>
