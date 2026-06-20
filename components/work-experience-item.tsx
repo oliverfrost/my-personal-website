@@ -7,47 +7,42 @@ interface WorkExperienceItemProps {
   responsibilities: string[];
 }
 
-export default function WorkExperienceItem({ 
-  dateRange, 
-  company, 
-  role, 
-  responsibilities, 
+export default function WorkExperienceItem({
+  dateRange,
+  company,
+  role,
+  responsibilities,
 }: WorkExperienceItemProps) {
   return (
-    <div className="relative flex">
-      {/* Timeline line and dot */}
-      <div className="flex flex-col items-center mr-4">
-        {/* Timeline dot */}
-        <div className="w-1 h-1 rounded-full bg-navy-blue shadow-sm"></div>
-        {/* Vertical line */}
-        <div className="w-0.5 bg-slate-300 flex-grow mt-2 mb-2 min-h-[120px]"></div>
+    <div className="relative flex lg:items-start">
+      {/* Desktop-only left column: date badge aligned to the timeline */}
+      <div className="hidden lg:flex lg:w-48 lg:flex-shrink-0 lg:justify-start lg:pt-1">
+        <span className="bg-badge text-badge-foreground inline-block rounded px-3 py-1 text-sm">
+          {dateRange}
+        </span>
+      </div>
+
+      {/* Timeline line + dot */}
+      <div className="mr-4 flex flex-col items-center">
+        <span className="bg-surface h-2 w-2 rounded-full shadow-sm" />
+        <span className="bg-border-base mt-2 mb-2 min-h-[120px] w-0.5 flex-grow" />
       </div>
 
       {/* Content */}
       <div className="flex-1 pb-8">
-        {/* Date badge */}
-        <div className="inline-block bg-slate-600 text-white text-sm px-3 py-1 rounded mb-3">
+        {/* Mobile-only date badge */}
+        <span className="bg-badge text-badge-foreground mb-3 inline-block rounded px-3 py-1 text-sm lg:hidden">
           {dateRange}
-        </div>
+        </span>
 
-        {/* Company name */}
-        <h3 className="text-xl font-bold text-gray-800 mb-1">
-          {company}
-        </h3>
+        <h3 className="mb-1 text-xl font-bold">{company}</h3>
+        <p className="text-muted mb-4 italic">{role}</p>
 
-        {/* Role */}
-        <p className="text-gray-600 italic mb-4">
-          {role}
-        </p>
-
-        {/* Responsibilities */}
         <ul className="space-y-2">
           {responsibilities.map((responsibility, index) => (
             <li key={index} className="flex items-start">
-              <span className="text-slate-600 mr-2 mt-1">•</span>
-              <span className="text-gray-700 text-sm leading-relaxed">
-                {responsibility}
-              </span>
+              <span className="mt-1 mr-2">•</span>
+              <span className="text-sm leading-relaxed">{responsibility}</span>
             </li>
           ))}
         </ul>

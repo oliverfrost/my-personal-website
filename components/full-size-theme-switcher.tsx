@@ -1,20 +1,24 @@
+'use client';
+
 import React from 'react';
 import SimpleSwitcher from './simple-switcher';
 import MoonIcon from './icons/moon-icon';
 import SunIcon from './icons/sun-icon';
+import { useTranslation } from '@/lib/i18n/language-provider';
 
 export default function FullSizeThemeSwitcher() {
-    return (
-        <div className="w-[320px] flex justify-between">
-            <div className="flex items-center">
-                <MoonIcon variant='dark' />
-                <span className="ml-1">Dark theme</span>
-            </div>
-            <SimpleSwitcher />
-            <div className="flex items-center">
-                <SunIcon variant='dark' />
-                <span className="ml-1">Light theme</span>
-            </div>
-        </div>
-    );
+  const { t } = useTranslation();
+  return (
+    <div className="flex items-center gap-3">
+      <span className="flex items-center gap-1">
+        <MoonIcon />
+        <span>{t.theme.dark}</span>
+      </span>
+      <SimpleSwitcher />
+      <span className="flex items-center gap-1">
+        <SunIcon />
+        <span>{t.theme.light}</span>
+      </span>
+    </div>
+  );
 }

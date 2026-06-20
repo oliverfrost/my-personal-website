@@ -1,5 +1,5 @@
-import PersonalInformation from '../components/personal-information';
-import Languages from '../components/languages';
+import PersonalInformation from '@/components/personal-information';
+import Languages from '@/components/languages';
 import HardSkills from '@/components/hard-skills';
 import Skills from '@/components/skills';
 import WorkExperience from '@/components/work-experience';
@@ -8,21 +8,36 @@ import Greeting from '@/components/greeting';
 import Summary from '@/components/summary';
 import DomainExpertise from '@/components/domain-expertise';
 import ContactForm from '@/components/contact-form';
+import Portfolio from '@/components/portfolio';
 import FullSizeThemeSwitcher from '@/components/full-size-theme-switcher';
 import LanguageSwitcher from '@/components/language-switcher';
+import SimpleSwitcher from '@/components/simple-switcher';
+import { features } from '@/lib/features';
 
 export default function Home() {
   return (
-    <main className='w-full p-4 lg:flex lg:gap-14'>
+    <main className="mx-auto w-full max-w-[1600px] p-4 lg:flex lg:gap-14">
+      {/* Summary: top card on mobile, left sidebar on desktop */}
       <div className="mb-4 lg:mb-0 lg:w-1/3">
+        {/* Mobile-only theme toggle sits inside the navy card */}
+        <div className="bg-surface flex justify-end p-4 pb-0 lg:hidden">
+          <SimpleSwitcher />
+        </div>
         <Summary />
       </div>
 
       <div className="flex flex-col gap-4 lg:w-2/3 lg:gap-8">
-        <div className="hidden lg:flex lg:justify-end lg:mb-2 lg:gap-2">
+        {/* Desktop-only top bar */}
+        <div className="hidden lg:mb-2 lg:flex lg:items-center lg:justify-end lg:gap-4">
           <LanguageSwitcher />
           <FullSizeThemeSwitcher />
         </div>
+
+        {/* Mobile-only language switcher */}
+        <div className="flex justify-end lg:hidden">
+          <LanguageSwitcher />
+        </div>
+
         <Greeting />
 
         <div className="lg:flex lg:gap-4">
@@ -39,6 +54,7 @@ export default function Home() {
         <WorkExperience />
         <Education />
         <DomainExpertise />
+        {features.portfolio && <Portfolio />}
         <ContactForm />
       </div>
     </main>

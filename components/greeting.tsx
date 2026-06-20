@@ -1,12 +1,14 @@
+'use client';
+
 import React from 'react';
+import { useTranslation } from '@/lib/i18n/language-provider';
 
 export default function Greeting() {
+  const { t } = useTranslation();
   return (
     <section>
-      <h2 className='mb-4 text-xl font-bold uppercase'>Hi, I&apos;m Serhii</h2>
-      <p className='text-sm'>
-        I&apos;m a Senior Front-End Developer and Team Lead with over 14 years of experience in IT, including 6+ years in front-end development and 3+ years in leadership roles. I&apos;m passionate about building robust, scalable web applications and leading teams toward delivering high-quality software. My core strengths lie in Vue.js, Angular, Pinia, and Docker, along with a strong foundation in testing and system support.
-      </p>
+      <h2 className="mb-4 text-xl font-bold uppercase">{t.greeting.heading}</h2>
+      <p className="text-sm">{t.greeting.body}</p>
     </section>
   );
 }

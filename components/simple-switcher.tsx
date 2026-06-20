@@ -1,49 +1,38 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
+import { useTheme } from '@/lib/theme/theme-provider';
 
 interface SimpleSwitcherProps {
-  checked?: boolean;
-  onChange?: (checked: boolean) => void;
+  /** Optional short label shown beside the toggle (used in the mobile header). */
+  label?: string;
 }
 
-export default function SimpleSwitcher({
-  checked = false,
-  onChange
-}: SimpleSwitcherProps) {
-  const [isChecked, setIsChecked] = useState(checked);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newChecked = e.target.checked;
-    setIsChecked(newChecked);
-    onChange?.(newChecked);
-  };
+export default function SimpleSwitcher({ label }: SimpleSwitcherProps) {
+  const { theme, toggleTheme } = useTheme();
+  const isLight = theme === 'light';
 
   return (
-    <label className="relative inline-flex items-center cursor-pointer">
+    <label className="relative inline-flex cursor-pointer items-center gap-2">
       <input
         type="checkbox"
-        checked={isChecked}
-        onChange={handleChange}
+        checked={isLight}
+        onChange={toggleTheme}
         className="sr-only"
+        aria-label={isLight ? 'Switch to dark theme' : 'Switch to light theme'}
       />
-      <div
-        className={`
-          relative w-14 h-8 rounded-full transition-colors duration-200 ease-in-out
-          ${isChecked
-            ? 'bg-white'
-            : 'bg-slate-600'
-          }
-        `}
+      <span
+        className={`relative h-8 w-14 rounded-full transition-colors duration-200 ease-in-out ${
+          isLight ? 'bg-white' : 'bg-slate-600'
+        }`}
       >
-        <div
-          className={`
-            absolute top-1 w-6 h-6 rounded-full shadow-md
-            transition-transform duration-200 ease-in-out
-            ${isChecked ? 'translate-x-6 bg-slate-600' : 'translate-x-1 bg-white'}
-          `}
+        <span
+          className={`absolute top-1 h-6 w-6 rounded-full shadow-md transition-transform duration-200 ease-in-out ${
+            isLight ? 'translate-x-6 bg-slate-600' : 'translate-x-1 bg-white'
+          }`}
         />
-      </div>
+      </span>
+      {label ? <span className="text-sm">{label}</span> : null}
     </label>
   );
 }

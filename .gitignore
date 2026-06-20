@@ -42,3 +42,6 @@ next-env.d.ts
 
 # IDEs
 .idea
+# Browser-check artifacts
+.playwright-mcp/
+/*.png

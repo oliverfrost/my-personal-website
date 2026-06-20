@@ -1,29 +1,21 @@
+'use client';
+
 import React from 'react';
+import { skills } from '@/data/skills';
+import { useTranslation } from '@/lib/i18n/language-provider';
 
 export default function Skills() {
-  const skills = [
-    'RxJs',
-    'NgRx',
-    'NgXs',
-    'Nx',
-    'Jest',
-    "Jasmine + Karma",
-    'Chai + Mocha',
-    'Docker',
-    'Kubernetes',
-    'Cypress',
-    'Protractor'
-  ];
-
-  return <div className='w-full'>
-    <h2 className="mb-4 text-2xl font-bold border-b-1 uppercase">
-      Skills
-    </h2>
-
-    <ul className='grid gap-1 sm:grid-cols-2 sm:gap-4'>
-      {skills.map((skill, index) => (
-        <li key={index}>{skill}</li>
-      ))}  
-    </ul>
-  </div>;
+  const { t } = useTranslation();
+  return (
+    <div className="w-full">
+      <h2 className="border-border-base mb-4 border-b text-2xl font-bold uppercase">
+        {t.sections.skills}
+      </h2>
+      <ul className="grid gap-1 sm:grid-cols-2 sm:gap-4">
+        {skills.map((skill) => (
+          <li key={skill}>{skill}</li>
+        ))}
+      </ul>
+    </div>
+  );
 }
