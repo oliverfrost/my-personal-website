@@ -8,6 +8,7 @@ import LeetCodeIcon from './icons/leetcode';
 import { socialLinks } from '@/data/social';
 import { personalInfo } from '@/data/personal';
 import { useTranslation } from '@/lib/i18n/language-provider';
+import { trackEvent } from '@/lib/analytics';
 
 const iconById = {
   linkedin: LinkedInIcon,
@@ -27,6 +28,7 @@ export default function Summary({ className }: { className?: string }) {
   const { t } = useTranslation();
 
   const downloadCV = () => {
+    trackEvent('download_cv', { file_name: 'Serhii_Kholodnyi_CV.pdf' });
     const link = document.createElement('a');
     link.href = '/docs/Serhii_Kholodnyi_Front-End-Dev.pdf';
     link.download = 'Serhii_Kholodnyi_CV.pdf';
