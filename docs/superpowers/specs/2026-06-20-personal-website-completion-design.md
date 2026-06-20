@@ -68,18 +68,21 @@ No automated test suite exists; verification is visual in-browser at multiple wi
 ## 5. Components
 
 **New**
+
 - `ThemeProvider`, `LanguageProvider`, `useTranslation` hook
 - `Portfolio` + `PortfolioItem`
 - `features.ts`, `data/` modules, `messages/` dictionaries
 - JSON-LD structured-data helper
 
 **Refactored**
+
 - `work-experience-item` → responsive timeline: date badge in a left column beside the timeline line on desktop, stacked above content on mobile.
 - `education` → rebuilt to mirror the same clean timeline; remove duplicated mobile/desktop blocks. The mockup shows the university crest; since no logo asset exists in the repo, the rebuild reserves a slot for it but omits the broken `university-logo.png` for now (logo added later when an asset is provided).
 - `page.tsx` → navy Summary becomes a left sidebar on desktop / top card on mobile; theme toggle lives inside the navy card on mobile and in a top-right bar on desktop; add a centered max-width container so very wide (2500px) screens don't stretch.
 - All section components → pull copy from `useTranslation()` instead of inline strings.
 
 **Restyled**
+
 - Download CV button and "Open for new opportunities" badge themed for both modes; badge top-center on mobile, top-right on desktop.
 
 ## 6. Responsive behavior

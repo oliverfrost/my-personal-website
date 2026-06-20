@@ -8,7 +8,7 @@ export default function Education() {
   const { t } = useTranslation();
   return (
     <div className="w-full">
-      <h2 className="mb-4 text-2xl font-bold border-b border-border-base uppercase">
+      <h2 className="border-border-base mb-4 border-b text-2xl font-bold uppercase">
         {t.sections.education}
       </h2>
 
@@ -17,26 +17,26 @@ export default function Education() {
           <div key={index} className="relative flex lg:items-start">
             {/* Desktop-only left column: period badge */}
             <div className="hidden lg:flex lg:w-48 lg:flex-shrink-0 lg:pt-1">
-              <span className="inline-block bg-badge text-badge-foreground text-sm px-3 py-1 rounded">
+              <span className="bg-badge text-badge-foreground inline-block rounded px-3 py-1 text-sm">
                 {entry.period}
               </span>
             </div>
 
             {/* Timeline line + dot */}
-            <div className="flex flex-col items-center mr-4">
-              <span className="w-2 h-2 rounded-full bg-surface shadow-sm" />
-              <span className="w-0.5 bg-border-base flex-grow mt-2 mb-2 min-h-[100px]" />
+            <div className="mr-4 flex flex-col items-center">
+              <span className="bg-surface h-2 w-2 rounded-full shadow-sm" />
+              <span className="bg-border-base mt-2 mb-2 min-h-[100px] w-0.5 flex-grow" />
             </div>
 
             {/* Content */}
             <div className="flex-1 pb-8">
-              <span className="lg:hidden inline-block bg-badge text-badge-foreground text-sm px-3 py-1 rounded mb-3">
+              <span className="bg-badge text-badge-foreground mb-3 inline-block rounded px-3 py-1 text-sm lg:hidden">
                 {entry.period}
               </span>
-              <h3 className="text-lg font-semibold mb-2">{entry.university}</h3>
+              <h3 className="mb-2 text-lg font-semibold">{entry.university}</h3>
               {/* Logo slot reserved; asset to be added later by the site owner */}
               <p className="text-muted mb-1">{t.degrees[entry.degreeKey]}</p>
-              <p className="font-medium uppercase text-sm">{entry.field}</p>
+              <p className="text-sm font-medium uppercase">{entry.field}</p>
             </div>
           </div>
         ))}

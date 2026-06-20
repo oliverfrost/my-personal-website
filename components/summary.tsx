@@ -29,12 +29,14 @@ export default function Summary({ className }: { className?: string }) {
   };
 
   return (
-    <section className={`p-4 bg-surface text-surface-foreground ${className || ''}`}>
+    <section
+      className={`bg-surface text-surface-foreground p-4 ${className || ''}`}
+    >
       <h1 className="mb-4 text-3xl font-bold uppercase">{personalInfo.name}</h1>
       <span className="block">{t.summary.rolePrimary}</span>
       <span className="mb-4 block">{t.summary.roleSecondary}</span>
 
-      <ul className="flex flex-row gap-4 justify-between list-none p-0">
+      <ul className="flex list-none flex-row justify-between gap-4 p-0">
         {socialLinks.map((link) => {
           const Icon = iconById[link.id];
           return (
@@ -50,7 +52,7 @@ export default function Summary({ className }: { className?: string }) {
       <div className="py-4">
         <button
           onClick={downloadCV}
-          className="w-full bg-background text-foreground px-4 py-2 rounded border border-border-base transition-colors"
+          className="bg-background text-foreground border-border-base w-full rounded border px-4 py-2 transition-colors"
         >
           {t.summary.downloadCv}
         </button>

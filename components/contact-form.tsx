@@ -44,21 +44,25 @@ export default function ContactForm() {
 
   return (
     <div className="w-full">
-      <div className="bg-card rounded-3xl p-8 border border-border-base">
+      <div className="bg-card border-border-base rounded-3xl border p-8">
         {/* Header: badge top-center on mobile, title + badge row on desktop */}
         <div className="mb-8 flex flex-col items-center gap-4 lg:flex-row lg:justify-between">
-          <h2 className="text-3xl font-light order-2 lg:order-1">{t.contact.title}</h2>
+          <h2 className="order-2 text-3xl font-light lg:order-1">
+            {t.contact.title}
+          </h2>
           {isOpenForNewOpportunities && (
-            <span className="order-1 lg:order-2 inline-flex items-center px-6 py-2 bg-background border-2 border-success rounded-full">
+            <span className="bg-background border-success order-1 inline-flex items-center rounded-full border-2 px-6 py-2 lg:order-2">
               <span className="text-success mr-2">✓</span>
-              <span className="text-success font-medium">{t.contact.openForOpportunities}</span>
+              <span className="text-success font-medium">
+                {t.contact.openForOpportunities}
+              </span>
             </span>
           )}
         </div>
 
         <form className="space-y-6" onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="fullName" className="block font-medium mb-2">
+            <label htmlFor="fullName" className="mb-2 block font-medium">
               {t.contact.fullName}
             </label>
             <input
@@ -66,12 +70,12 @@ export default function ContactForm() {
               id="fullName"
               name="name"
               required
-              className="w-full px-4 py-3 bg-background border-2 border-border-base rounded-2xl focus:outline-none focus:border-link transition-colors"
+              className="bg-background border-border-base focus:border-link w-full rounded-2xl border-2 px-4 py-3 transition-colors focus:outline-none"
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="block font-medium mb-2">
+            <label htmlFor="email" className="mb-2 block font-medium">
               {t.contact.email}
             </label>
             <input
@@ -79,12 +83,12 @@ export default function ContactForm() {
               id="email"
               name="email"
               required
-              className="w-full px-4 py-3 bg-background border-2 border-border-base rounded-2xl focus:outline-none focus:border-link transition-colors"
+              className="bg-background border-border-base focus:border-link w-full rounded-2xl border-2 px-4 py-3 transition-colors focus:outline-none"
             />
           </div>
 
           <div>
-            <label htmlFor="message" className="block font-medium mb-2">
+            <label htmlFor="message" className="mb-2 block font-medium">
               {t.contact.message}
             </label>
             <textarea
@@ -92,21 +96,25 @@ export default function ContactForm() {
               name="message"
               rows={5}
               required
-              className="w-full px-4 py-3 bg-background border-2 border-border-base rounded-2xl focus:outline-none focus:border-link transition-colors resize-none"
+              className="bg-background border-border-base focus:border-link w-full resize-none rounded-2xl border-2 px-4 py-3 transition-colors focus:outline-none"
             />
           </div>
 
           <button
             type="submit"
             disabled={status === 'submitting'}
-            className="w-full bg-surface text-surface-foreground py-3 rounded-2xl font-medium text-lg transition-colors disabled:opacity-60"
+            className="bg-surface text-surface-foreground w-full rounded-2xl py-3 text-lg font-medium transition-colors disabled:opacity-60"
           >
             {status === 'submitting' ? t.contact.submitting : t.contact.submit}
           </button>
 
-          {status === 'success' && <p className="text-success text-center">{t.contact.success}</p>}
+          {status === 'success' && (
+            <p className="text-success text-center">{t.contact.success}</p>
+          )}
           {status === 'error' && (
-            <p className="text-red-600 dark:text-red-400 text-center">{t.contact.error}</p>
+            <p className="text-center text-red-600 dark:text-red-400">
+              {t.contact.error}
+            </p>
           )}
         </form>
       </div>

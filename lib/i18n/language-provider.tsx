@@ -34,7 +34,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     let next: Locale = DEFAULT_LOCALE;
     try {
       const stored = localStorage.getItem(LOCALE_STORAGE_KEY);
-      next = stored && isLocale(stored) ? stored : resolveLocale(navigator.language);
+      next =
+        stored && isLocale(stored) ? stored : resolveLocale(navigator.language);
     } catch {
       next = resolveLocale(navigator.language);
     }
@@ -53,7 +54,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <LanguageContext.Provider value={{ locale, setLocale, t: dictionaries[locale] }}>
+    <LanguageContext.Provider
+      value={{ locale, setLocale, t: dictionaries[locale] }}
+    >
       {children}
     </LanguageContext.Provider>
   );

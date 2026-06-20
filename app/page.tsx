@@ -20,7 +20,7 @@ export default function Home() {
       {/* Summary: top card on mobile, left sidebar on desktop */}
       <div className="mb-4 lg:mb-0 lg:w-1/3">
         {/* Mobile-only theme toggle sits inside the navy card */}
-        <div className="lg:hidden flex justify-end p-4 pb-0 bg-surface">
+        <div className="bg-surface flex justify-end p-4 pb-0 lg:hidden">
           <SimpleSwitcher />
         </div>
         <Summary />
@@ -28,13 +28,13 @@ export default function Home() {
 
       <div className="flex flex-col gap-4 lg:w-2/3 lg:gap-8">
         {/* Desktop-only top bar */}
-        <div className="hidden lg:flex lg:justify-end lg:mb-2 lg:gap-4 lg:items-center">
+        <div className="hidden lg:mb-2 lg:flex lg:items-center lg:justify-end lg:gap-4">
           <LanguageSwitcher />
           <FullSizeThemeSwitcher />
         </div>
 
         {/* Mobile-only language switcher */}
-        <div className="lg:hidden flex justify-end">
+        <div className="flex justify-end lg:hidden">
           <LanguageSwitcher />
         </div>
 

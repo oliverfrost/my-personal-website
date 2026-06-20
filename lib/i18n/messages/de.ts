@@ -52,6 +52,7 @@ export const de: Messages = {
     submit: 'Absenden',
     submitting: 'Wird gesendet…',
     success: 'Danke! Ihre Nachricht wurde erfolgreich gesendet.',
-    error: 'Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt.',
+    error:
+      'Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt.',
   },
 };

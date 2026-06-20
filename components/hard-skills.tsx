@@ -9,12 +9,16 @@ export default function HardSkills() {
   const { t } = useTranslation();
   return (
     <div className="w-full">
-      <h2 className="mb-4 text-2xl font-bold border-b border-border-base uppercase">
+      <h2 className="border-border-base mb-4 border-b text-2xl font-bold uppercase">
         {t.sections.hardSkills}
       </h2>
-      <div className="mt-6 grid gap-4 grid-cols-1 lg:grid-cols-2 lg:gap-6">
+      <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-6">
         {hardSkills.map((s) => (
-          <SkillSlider key={s.skill} skill={s.skill} percentage={s.percentage} />
+          <SkillSlider
+            key={s.skill}
+            skill={s.skill}
+            percentage={s.percentage}
+          />
         ))}
       </div>
     </div>

@@ -12,31 +12,35 @@ import { useTranslation } from '@/lib/i18n/language-provider';
 export default function PersonalInformation() {
   const { t } = useTranslation();
   return (
-    <div className="w-full mb-4 lg:mb-0">
-      <h2 className="mb-4 text-2xl font-bold border-b border-border-base uppercase">
+    <div className="mb-4 w-full lg:mb-0">
+      <h2 className="border-border-base mb-4 border-b text-2xl font-bold uppercase">
         {t.sections.personalInformation}
       </h2>
 
       <ul className="space-y-3">
         <li className="flex items-center space-x-3">
-          <PersonIcon className="w-6 h-6" />
+          <PersonIcon className="h-6 w-6" />
           <span>{personalInfo.name}</span>
         </li>
         <li className="flex items-center space-x-3">
-          <MapMarkerIcon className="w-6 h-6" />
+          <MapMarkerIcon className="h-6 w-6" />
           <span>{personalInfo.location}</span>
         </li>
         <li className="flex items-center space-x-3">
-          <PhoneIcon className="w-6 h-6" />
+          <PhoneIcon className="h-6 w-6" />
           <a href={personalInfo.phoneHref}>{personalInfo.phone}</a>
         </li>
         <li className="flex items-center space-x-3">
-          <AtIcon className="w-6 h-6" />
+          <AtIcon className="h-6 w-6" />
           <a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a>
         </li>
         <li className="flex items-center space-x-3">
-          <LinkedInIcon className="w-6 h-6" />
-          <a href={personalInfo.linkedinUrl} target="_blank" rel="noopener noreferrer">
+          <LinkedInIcon className="h-6 w-6" />
+          <a
+            href={personalInfo.linkedinUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {personalInfo.linkedinLabel}
           </a>
         </li>

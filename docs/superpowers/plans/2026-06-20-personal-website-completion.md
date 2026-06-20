@@ -22,6 +22,7 @@
 ## File structure (created / modified)
 
 **Created**
+
 - `lib/theme/theme-provider.tsx` — Theme context, provider, `useTheme` hook.
 - `lib/theme/theme-script.ts` — anti-FOUC inline script string.
 - `lib/i18n/locales.ts` — `Locale` type + locale metadata (code, label, native name).
@@ -37,6 +38,7 @@
 - `.env.local.example` — documents `NEXT_PUBLIC_WEB3FORMS_KEY` and `NEXT_PUBLIC_SITE_URL`.
 
 **Modified**
+
 - `app/globals.css` — dark-mode variant + dual-theme tokens.
 - `app/layout.tsx` — providers, anti-FOUC script, SEO metadata, JSON-LD, `lang` sync.
 - `app/page.tsx` — responsive layout, toggle placement, max-width container, portfolio gating.
@@ -52,6 +54,7 @@
 ## Task 1: Dual-theme design tokens + dark-mode variant
 
 **Files:**
+
 - Modify: `app/globals.css`
 
 - [ ] **Step 1: Replace `app/globals.css` with the token system**
@@ -67,13 +70,13 @@
   --background: #ffffff;
   --foreground: #1f2733;
   --muted: #5b6470;
-  --surface: #404a5d;          /* navy summary panel */
+  --surface: #404a5d; /* navy summary panel */
   --surface-foreground: #ffffff;
   --border: #e2e5ea;
   --badge-bg: #404a5d;
   --badge-foreground: #ffffff;
-  --track: #d6dae0;            /* skill slider track */
-  --track-fill: #404a5d;       /* skill slider fill/handle */
+  --track: #d6dae0; /* skill slider track */
+  --track-fill: #404a5d; /* skill slider fill/handle */
   --link: #3b82f6;
   --accent-success: #16a34a;
   --card-bg: #f8f9fb;
@@ -83,7 +86,7 @@
   --background: #404a5d;
   --foreground: #f3f4f6;
   --muted: #c2c7d0;
-  --surface: #ffffff;          /* inverted: summary panel becomes light */
+  --surface: #ffffff; /* inverted: summary panel becomes light */
   --surface-foreground: #1f2733;
   --border: #5b6470;
   --badge-bg: #ffffff;
@@ -117,7 +120,9 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: source-sans-pro, sans-serif;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 ```
 
@@ -145,6 +150,7 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
 ## Task 2: Theme provider + anti-FOUC script
 
 **Files:**
+
 - Create: `lib/theme/theme-script.ts`
 - Create: `lib/theme/theme-provider.tsx`
 
@@ -261,6 +267,7 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
 ## Task 3: i18n foundation (locales, English dictionary, Messages type)
 
 **Files:**
+
 - Create: `lib/i18n/locales.ts`
 - Create: `lib/i18n/messages/en.ts`
 
@@ -391,6 +398,7 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
 ## Task 4: Translated dictionaries (es, de, uk, ru) with compile-time key parity
 
 **Files:**
+
 - Create: `lib/i18n/messages/es.ts`, `de.ts`, `uk.ts`, `ru.ts`
 
 - [ ] **Step 1: Create each translated dictionary**
@@ -482,6 +490,7 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
 ## Task 5: Language provider + useTranslation hook
 
 **Files:**
+
 - Create: `lib/i18n/messages/index.ts`
 - Create: `lib/i18n/language-provider.tsx`
 
@@ -543,7 +552,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     let next: Locale = DEFAULT_LOCALE;
     try {
       const stored = localStorage.getItem(LOCALE_STORAGE_KEY);
-      next = stored && isLocale(stored) ? stored : resolveLocale(navigator.language);
+      next =
+        stored && isLocale(stored) ? stored : resolveLocale(navigator.language);
     } catch {
       next = resolveLocale(navigator.language);
     }
@@ -562,7 +572,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <LanguageContext.Provider value={{ locale, setLocale, t: dictionaries[locale] }}>
+    <LanguageContext.Provider
+      value={{ locale, setLocale, t: dictionaries[locale] }}
+    >
       {children}
     </LanguageContext.Provider>
   );
@@ -596,6 +608,7 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
 ## Task 6: Wire providers + anti-FOUC script into the layout
 
 **Files:**
+
 - Modify: `app/layout.tsx`
 
 - [ ] **Step 1: Update the root layout**
@@ -656,6 +669,7 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
 ## Task 7: Wire theme switchers to useTheme
 
 **Files:**
+
 - Modify: `components/simple-switcher.tsx`
 - Modify: `components/full-size-theme-switcher.tsx`
 
@@ -677,7 +691,7 @@ export default function SimpleSwitcher({ label }: SimpleSwitcherProps) {
   const isLight = theme === 'light';
 
   return (
-    <label className="relative inline-flex items-center cursor-pointer gap-2">
+    <label className="relative inline-flex cursor-pointer items-center gap-2">
       <input
         type="checkbox"
         checked={isLight}
@@ -686,12 +700,12 @@ export default function SimpleSwitcher({ label }: SimpleSwitcherProps) {
         aria-label={isLight ? 'Switch to dark theme' : 'Switch to light theme'}
       />
       <span
-        className={`relative w-14 h-8 rounded-full transition-colors duration-200 ease-in-out ${
+        className={`relative h-8 w-14 rounded-full transition-colors duration-200 ease-in-out ${
           isLight ? 'bg-white' : 'bg-slate-600'
         }`}
       >
         <span
-          className={`absolute top-1 w-6 h-6 rounded-full shadow-md transition-transform duration-200 ease-in-out ${
+          className={`absolute top-1 h-6 w-6 rounded-full shadow-md transition-transform duration-200 ease-in-out ${
             isLight ? 'translate-x-6 bg-slate-600' : 'translate-x-1 bg-white'
           }`}
         />
@@ -756,6 +770,7 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
 ## Task 8: Structural data modules
 
 **Files:**
+
 - Create: `data/personal.ts`, `data/social.ts`, `data/languages.ts`, `data/hard-skills.ts`, `data/skills.ts`, `data/domain-expertise.ts`
 
 - [ ] **Step 1: Create `data/personal.ts`**
@@ -792,7 +807,10 @@ export interface SocialLink {
 
 export const socialLinks: SocialLink[] = [
   { id: 'linkedin', url: 'https://www.linkedin.com/in/serhii-kholodnyi' },
-  { id: 'stackoverflow', url: 'https://stackoverflow.com/users/4520707/oliverfrost21' },
+  {
+    id: 'stackoverflow',
+    url: 'https://stackoverflow.com/users/4520707/oliverfrost21',
+  },
   { id: 'github', url: 'https://github.com/oliverfrost' },
   { id: 'leetcode', url: 'https://leetcode.com/u/oliverfrost21/' },
 ];
@@ -892,6 +910,7 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
 ## Task 9: Refactor simple sections to data + i18n (Summary, Greeting, PersonalInformation, Languages, Skills, HardSkills, DomainExpertise)
 
 **Files:**
+
 - Modify: `components/summary.tsx`, `components/greeting.tsx`, `components/personal-information.tsx`, `components/languages.tsx`, `components/skills.tsx`, `components/hard-skills.tsx`, `components/skill-slider.tsx`, `components/domain-expertise.tsx`
 
 - [ ] **Step 1: Rewrite `components/summary.tsx`**
@@ -928,12 +947,14 @@ export default function Summary({ className }: { className?: string }) {
   };
 
   return (
-    <section className={`p-4 bg-surface text-surface-foreground ${className || ''}`}>
+    <section
+      className={`bg-surface text-surface-foreground p-4 ${className || ''}`}
+    >
       <h1 className="mb-4 text-3xl font-bold uppercase">{personalInfo.name}</h1>
       <span className="block">{t.summary.rolePrimary}</span>
       <span className="mb-4 block">{t.summary.roleSecondary}</span>
 
-      <ul className="flex flex-row gap-4 justify-between list-none p-0">
+      <ul className="flex list-none flex-row justify-between gap-4 p-0">
         {socialLinks.map((link) => {
           const Icon = iconById[link.id];
           return (
@@ -949,7 +970,7 @@ export default function Summary({ className }: { className?: string }) {
       <div className="py-4">
         <button
           onClick={downloadCV}
-          className="w-full bg-background text-foreground px-4 py-2 rounded border border-border-base transition-colors"
+          className="bg-background text-foreground border-border-base w-full rounded border px-4 py-2 transition-colors"
         >
           {t.summary.downloadCv}
         </button>
@@ -997,31 +1018,35 @@ import { useTranslation } from '@/lib/i18n/language-provider';
 export default function PersonalInformation() {
   const { t } = useTranslation();
   return (
-    <div className="w-full mb-4 lg:mb-0">
-      <h2 className="mb-4 text-2xl font-bold border-b border-border-base uppercase">
+    <div className="mb-4 w-full lg:mb-0">
+      <h2 className="border-border-base mb-4 border-b text-2xl font-bold uppercase">
         {t.sections.personalInformation}
       </h2>
 
       <ul className="space-y-3">
         <li className="flex items-center space-x-3">
-          <PersonIcon className="w-6 h-6" variant="dark" />
+          <PersonIcon className="h-6 w-6" variant="dark" />
           <span>{personalInfo.name}</span>
         </li>
         <li className="flex items-center space-x-3">
-          <MapMarkerIcon className="w-6 h-6" variant="dark" />
+          <MapMarkerIcon className="h-6 w-6" variant="dark" />
           <span>{personalInfo.location}</span>
         </li>
         <li className="flex items-center space-x-3">
-          <PhoneIcon className="w-6 h-6" variant="dark" />
+          <PhoneIcon className="h-6 w-6" variant="dark" />
           <a href={personalInfo.phoneHref}>{personalInfo.phone}</a>
         </li>
         <li className="flex items-center space-x-3">
-          <AtIcon className="w-6 h-6" variant="dark" />
+          <AtIcon className="h-6 w-6" variant="dark" />
           <a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a>
         </li>
         <li className="flex items-center space-x-3">
-          <LinkedInIcon className="w-6 h-6" variant="dark" />
-          <a href={personalInfo.linkedinUrl} target="_blank" rel="noopener noreferrer">
+          <LinkedInIcon className="h-6 w-6" variant="dark" />
+          <a
+            href={personalInfo.linkedinUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {personalInfo.linkedinLabel}
           </a>
         </li>
@@ -1046,7 +1071,7 @@ export default function Languages() {
   const { t } = useTranslation();
   return (
     <div className="w-full">
-      <h2 className="mb-4 text-2xl font-bold border-b border-border-base uppercase">
+      <h2 className="border-border-base mb-4 border-b text-2xl font-bold uppercase">
         {t.sections.languages}
       </h2>
       <ul className="space-y-3">
@@ -1075,7 +1100,7 @@ export default function Skills() {
   const { t } = useTranslation();
   return (
     <div className="w-full">
-      <h2 className="mb-4 text-2xl font-bold border-b border-border-base uppercase">
+      <h2 className="border-border-base mb-4 border-b text-2xl font-bold uppercase">
         {t.sections.skills}
       </h2>
       <ul className="grid gap-1 sm:grid-cols-2 sm:gap-4">
@@ -1101,18 +1126,18 @@ interface SkillSliderProps {
 export default function SkillSlider({ skill, percentage }: SkillSliderProps) {
   return (
     <div className="mb-6">
-      <div className="flex justify-between items-center mb-2">
+      <div className="mb-2 flex items-center justify-between">
         <span className="text-lg font-medium">{skill}</span>
         <span className="text-lg font-medium">{percentage}%</span>
       </div>
       <div className="relative">
-        <div className="w-full h-2 bg-track rounded-full" />
+        <div className="bg-track h-2 w-full rounded-full" />
         <div
-          className="absolute top-0 left-0 h-2 bg-track-fill rounded-full"
+          className="bg-track-fill absolute top-0 left-0 h-2 rounded-full"
           style={{ width: `${percentage}%` }}
         />
         <div
-          className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-track-fill rounded-full border-2 border-background shadow-md"
+          className="bg-track-fill border-background absolute top-1/2 h-4 w-4 -translate-y-1/2 rounded-full border-2 shadow-md"
           style={{ left: `calc(${percentage}% - 8px)` }}
         />
       </div>
@@ -1135,12 +1160,16 @@ export default function HardSkills() {
   const { t } = useTranslation();
   return (
     <div className="w-full">
-      <h2 className="mb-4 text-2xl font-bold border-b border-border-base uppercase">
+      <h2 className="border-border-base mb-4 border-b text-2xl font-bold uppercase">
         {t.sections.hardSkills}
       </h2>
-      <div className="mt-6 grid gap-4 grid-cols-1 lg:grid-cols-2 lg:gap-6">
+      <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-6">
         {hardSkills.map((s) => (
-          <SkillSlider key={s.skill} skill={s.skill} percentage={s.percentage} />
+          <SkillSlider
+            key={s.skill}
+            skill={s.skill}
+            percentage={s.percentage}
+          />
         ))}
       </div>
     </div>
@@ -1164,7 +1193,10 @@ import SocialNetworksIcon from './icons/social-networks-icon';
 import { domainExpertise, type DomainId } from '@/data/domain-expertise';
 import { useTranslation } from '@/lib/i18n/language-provider';
 
-const iconByDomain: Record<DomainId, React.ComponentType<{ variant?: string }>> = {
+const iconByDomain: Record<
+  DomainId,
+  React.ComponentType<{ variant?: string }>
+> = {
   finance: FinanceIcon,
   insurance: InsuranceIcon,
   healthcare: HealthcareIcon,
@@ -1178,15 +1210,15 @@ export default function DomainExpertise() {
   const { t } = useTranslation();
   return (
     <div className="w-full">
-      <h2 className="mb-4 text-2xl font-bold border-b border-border-base">
+      <h2 className="border-border-base mb-4 border-b text-2xl font-bold">
         {t.sections.domainExpertise}
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+      <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
         {domainExpertise.map((id) => {
           const Icon = iconByDomain[id];
           return (
             <div key={id} className="flex items-center space-x-3">
-              <span className="w-8 h-8 flex-shrink-0">
+              <span className="h-8 w-8 flex-shrink-0">
                 <Icon variant="dark" />
               </span>
               <span className="font-medium">{t.domains[id]}</span>
@@ -1220,6 +1252,7 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
 ## Task 10: Work Experience — data (6 roles) + responsive timeline
 
 **Files:**
+
 - Create: `data/work-experience.ts`
 - Modify: `components/work-experience.tsx`, `components/work-experience-item.tsx`
 
@@ -1323,31 +1356,31 @@ export default function WorkExperienceItem({
     <div className="relative flex lg:items-start">
       {/* Desktop-only left column: date badge aligned to the timeline */}
       <div className="hidden lg:flex lg:w-48 lg:flex-shrink-0 lg:justify-start lg:pt-1">
-        <span className="inline-block bg-badge text-badge-foreground text-sm px-3 py-1 rounded">
+        <span className="bg-badge text-badge-foreground inline-block rounded px-3 py-1 text-sm">
           {dateRange}
         </span>
       </div>
 
       {/* Timeline line + dot */}
-      <div className="flex flex-col items-center mr-4">
-        <span className="w-2 h-2 rounded-full bg-surface shadow-sm" />
-        <span className="w-0.5 bg-border-base flex-grow mt-2 mb-2 min-h-[120px]" />
+      <div className="mr-4 flex flex-col items-center">
+        <span className="bg-surface h-2 w-2 rounded-full shadow-sm" />
+        <span className="bg-border-base mt-2 mb-2 min-h-[120px] w-0.5 flex-grow" />
       </div>
 
       {/* Content */}
       <div className="flex-1 pb-8">
         {/* Mobile-only date badge */}
-        <span className="lg:hidden inline-block bg-badge text-badge-foreground text-sm px-3 py-1 rounded mb-3">
+        <span className="bg-badge text-badge-foreground mb-3 inline-block rounded px-3 py-1 text-sm lg:hidden">
           {dateRange}
         </span>
 
-        <h3 className="text-xl font-bold mb-1">{company}</h3>
-        <p className="text-muted italic mb-4">{role}</p>
+        <h3 className="mb-1 text-xl font-bold">{company}</h3>
+        <p className="text-muted mb-4 italic">{role}</p>
 
         <ul className="space-y-2">
           {responsibilities.map((responsibility, index) => (
             <li key={index} className="flex items-start">
-              <span className="mr-2 mt-1">•</span>
+              <span className="mt-1 mr-2">•</span>
               <span className="text-sm leading-relaxed">{responsibility}</span>
             </li>
           ))}
@@ -1372,7 +1405,7 @@ export default function WorkExperience() {
   const { t } = useTranslation();
   return (
     <div className="w-full">
-      <h2 className="mb-4 text-2xl font-bold border-b border-border-base uppercase">
+      <h2 className="border-border-base mb-4 border-b text-2xl font-bold uppercase">
         {t.sections.workExperience}
       </h2>
       <div className="mt-6">
@@ -1408,6 +1441,7 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
 ## Task 11: Education — rebuild timeline
 
 **Files:**
+
 - Create: `data/education.ts`
 - Modify: `components/education.tsx`
 
@@ -1452,7 +1486,7 @@ export default function Education() {
   const { t } = useTranslation();
   return (
     <div className="w-full">
-      <h2 className="mb-4 text-2xl font-bold border-b border-border-base uppercase">
+      <h2 className="border-border-base mb-4 border-b text-2xl font-bold uppercase">
         {t.sections.education}
       </h2>
 
@@ -1461,26 +1495,26 @@ export default function Education() {
           <div key={index} className="relative flex lg:items-start">
             {/* Desktop-only left column: period badge */}
             <div className="hidden lg:flex lg:w-48 lg:flex-shrink-0 lg:pt-1">
-              <span className="inline-block bg-badge text-badge-foreground text-sm px-3 py-1 rounded">
+              <span className="bg-badge text-badge-foreground inline-block rounded px-3 py-1 text-sm">
                 {entry.period}
               </span>
             </div>
 
             {/* Timeline line + dot */}
-            <div className="flex flex-col items-center mr-4">
-              <span className="w-2 h-2 rounded-full bg-surface shadow-sm" />
-              <span className="w-0.5 bg-border-base flex-grow mt-2 mb-2 min-h-[100px]" />
+            <div className="mr-4 flex flex-col items-center">
+              <span className="bg-surface h-2 w-2 rounded-full shadow-sm" />
+              <span className="bg-border-base mt-2 mb-2 min-h-[100px] w-0.5 flex-grow" />
             </div>
 
             {/* Content */}
             <div className="flex-1 pb-8">
-              <span className="lg:hidden inline-block bg-badge text-badge-foreground text-sm px-3 py-1 rounded mb-3">
+              <span className="bg-badge text-badge-foreground mb-3 inline-block rounded px-3 py-1 text-sm lg:hidden">
                 {entry.period}
               </span>
-              <h3 className="text-lg font-semibold mb-2">{entry.university}</h3>
+              <h3 className="mb-2 text-lg font-semibold">{entry.university}</h3>
               {/* Logo slot reserved; asset to be added later by the site owner */}
               <p className="text-muted mb-1">{t.degrees[entry.degreeKey]}</p>
-              <p className="font-medium uppercase text-sm">{entry.field}</p>
+              <p className="text-sm font-medium uppercase">{entry.field}</p>
             </div>
           </div>
         ))}
@@ -1513,6 +1547,7 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
 ## Task 12: Feature flags + Portfolio section (hidden)
 
 **Files:**
+
 - Create: `lib/features.ts`
 - Create: `data/portfolio.ts`
 - Create: `components/portfolio-item.tsx`, `components/portfolio.tsx`
@@ -1590,17 +1625,25 @@ import React from 'react';
 import type { PortfolioProject } from '@/data/portfolio';
 import { useTranslation } from '@/lib/i18n/language-provider';
 
-export default function PortfolioItem({ project }: { project: PortfolioProject }) {
+export default function PortfolioItem({
+  project,
+}: {
+  project: PortfolioProject;
+}) {
   const { t } = useTranslation();
   return (
     <article className="mb-10">
-      <h3 className="text-lg font-bold uppercase mb-4">{project.title}</h3>
+      <h3 className="mb-4 text-lg font-bold uppercase">{project.title}</h3>
 
       {/* Image placeholder: outlined rounded square matching the mockup */}
-      <div className="w-full max-w-md aspect-square rounded-3xl border border-border-base flex items-center justify-center mb-4">
+      <div className="border-border-base mb-4 flex aspect-square w-full max-w-md items-center justify-center rounded-3xl border">
         {project.imageUrl ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover rounded-3xl" />
+          <img
+            src={project.imageUrl}
+            alt={project.title}
+            className="h-full w-full rounded-3xl object-cover"
+          />
         ) : (
           <span className="text-muted text-sm">Image</span>
         )}
@@ -1610,13 +1653,14 @@ export default function PortfolioItem({ project }: { project: PortfolioProject }
         href={project.linkUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-link uppercase text-sm font-medium"
+        className="text-link text-sm font-medium uppercase"
       >
         {t.portfolio.linkLabel}
       </a>
 
       <p className="mt-4 text-sm">
-        <span className="font-semibold">{t.portfolio.aboutLabel}</span> {project.about}
+        <span className="font-semibold">{t.portfolio.aboutLabel}</span>{' '}
+        {project.about}
       </p>
       <p className="mt-4 text-sm">
         <span className="font-semibold">{t.portfolio.technologiesLabel}</span>{' '}
@@ -1641,7 +1685,7 @@ export default function Portfolio() {
   const { t } = useTranslation();
   return (
     <div className="w-full">
-      <h2 className="mb-4 text-2xl font-bold border-b border-border-base uppercase">
+      <h2 className="border-border-base mb-4 border-b text-2xl font-bold uppercase">
         {t.sections.portfolio}
       </h2>
       <div className="mt-6">
@@ -1673,6 +1717,7 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
 ## Task 13: Responsive page layout + toggle placement + portfolio gating
 
 **Files:**
+
 - Modify: `app/page.tsx`
 
 - [ ] **Step 1: Rewrite `app/page.tsx`**
@@ -1700,7 +1745,7 @@ export default function Home() {
       {/* Summary: top card on mobile, left sidebar on desktop */}
       <div className="mb-4 lg:mb-0 lg:w-1/3">
         {/* Mobile-only theme toggle sits inside the navy card */}
-        <div className="lg:hidden flex justify-end p-4 pb-0 bg-surface">
+        <div className="bg-surface flex justify-end p-4 pb-0 lg:hidden">
           <SimpleSwitcher />
         </div>
         <Summary />
@@ -1708,13 +1753,13 @@ export default function Home() {
 
       <div className="flex flex-col gap-4 lg:w-2/3 lg:gap-8">
         {/* Desktop-only top bar */}
-        <div className="hidden lg:flex lg:justify-end lg:mb-2 lg:gap-4 lg:items-center">
+        <div className="hidden lg:mb-2 lg:flex lg:items-center lg:justify-end lg:gap-4">
           <LanguageSwitcher />
           <FullSizeThemeSwitcher />
         </div>
 
         {/* Mobile-only language switcher */}
-        <div className="lg:hidden flex justify-end">
+        <div className="flex justify-end lg:hidden">
           <LanguageSwitcher />
         </div>
 
@@ -1747,10 +1792,11 @@ export default function Home() {
 - [ ] **Step 2: Browser check — full responsive sweep**
 
 `npm run dev`. Screenshot the full page at 320px, 375px, 768px, 1440px, and 2500px, in BOTH themes. Expected:
+
 - 320–375px: single column, navy summary card on top with theme toggle in its top-right, language switcher above greeting.
 - ≥1024px: two columns, navy sidebar left, content right, language + theme controls top-right.
 - 2500px: content centered within max-width, not stretched edge-to-edge.
-Compare each against the corresponding mockup. Look at every screenshot.
+  Compare each against the corresponding mockup. Look at every screenshot.
 
 - [ ] **Step 3: Verify typecheck + build**
 
@@ -1771,6 +1817,7 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
 ## Task 14: Wire the language switcher to the provider
 
 **Files:**
+
 - Modify: `components/language-switcher.tsx`
 
 - [ ] **Step 1: Rewrite `components/language-switcher.tsx`**
@@ -1789,7 +1836,10 @@ export default function LanguageSwitcher() {
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     }
@@ -1803,23 +1853,28 @@ export default function LanguageSwitcher() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen((v) => !v)}
-        className="flex items-center gap-2 px-3 py-2 text-sm font-medium rounded-md border border-border-base transition-colors"
+        className="border-border-base flex items-center gap-2 rounded-md border px-3 py-2 text-sm font-medium transition-colors"
         aria-expanded={isOpen}
         aria-haspopup="true"
       >
         <span>{current.label}</span>
         <svg
-          className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+          className={`h-4 w-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 9l-7 7-7-7"
+          />
         </svg>
       </button>
 
       {isOpen && (
-        <div className="absolute top-full right-0 mt-1 w-44 bg-background border border-border-base rounded-md z-50 shadow-lg">
+        <div className="bg-background border-border-base absolute top-full right-0 z-50 mt-1 w-44 rounded-md border shadow-lg">
           <ul className="py-1">
             {LOCALES.map((l) => (
               <li key={l.code}>
@@ -1828,13 +1883,13 @@ export default function LanguageSwitcher() {
                     setLocale(l.code);
                     setIsOpen(false);
                   }}
-                  className={`w-full text-left px-4 py-2 text-sm transition-colors ${
-                    l.code === locale ? 'font-semibold text-link' : ''
+                  className={`w-full px-4 py-2 text-left text-sm transition-colors ${
+                    l.code === locale ? 'text-link font-semibold' : ''
                   }`}
                 >
                   <span className="flex items-center justify-between">
                     <span>{l.label}</span>
-                    <span className="text-xs text-muted">{l.nativeName}</span>
+                    <span className="text-muted text-xs">{l.nativeName}</span>
                   </span>
                 </button>
               </li>
@@ -1870,6 +1925,7 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
 ## Task 15: Contact form — Web3Forms integration + states
 
 **Files:**
+
 - Create: `.env.local.example`
 - Modify: `components/contact-form.tsx`
 
@@ -1935,21 +1991,25 @@ export default function ContactForm() {
 
   return (
     <div className="w-full">
-      <div className="bg-card rounded-3xl p-8 border border-border-base">
+      <div className="bg-card border-border-base rounded-3xl border p-8">
         {/* Header: badge top-center on mobile, title + badge row on desktop */}
         <div className="mb-8 flex flex-col items-center gap-4 lg:flex-row lg:justify-between">
-          <h2 className="text-3xl font-light order-2 lg:order-1">{t.contact.title}</h2>
+          <h2 className="order-2 text-3xl font-light lg:order-1">
+            {t.contact.title}
+          </h2>
           {isOpenForNewOpportunities && (
-            <span className="order-1 lg:order-2 inline-flex items-center px-6 py-2 bg-background border-2 border-success rounded-full">
+            <span className="bg-background border-success order-1 inline-flex items-center rounded-full border-2 px-6 py-2 lg:order-2">
               <span className="text-success mr-2">✓</span>
-              <span className="text-success font-medium">{t.contact.openForOpportunities}</span>
+              <span className="text-success font-medium">
+                {t.contact.openForOpportunities}
+              </span>
             </span>
           )}
         </div>
 
         <form className="space-y-6" onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="fullName" className="block font-medium mb-2">
+            <label htmlFor="fullName" className="mb-2 block font-medium">
               {t.contact.fullName}
             </label>
             <input
@@ -1957,12 +2017,12 @@ export default function ContactForm() {
               id="fullName"
               name="name"
               required
-              className="w-full px-4 py-3 bg-background border-2 border-border-base rounded-2xl focus:outline-none focus:border-link transition-colors"
+              className="bg-background border-border-base focus:border-link w-full rounded-2xl border-2 px-4 py-3 transition-colors focus:outline-none"
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="block font-medium mb-2">
+            <label htmlFor="email" className="mb-2 block font-medium">
               {t.contact.email}
             </label>
             <input
@@ -1970,12 +2030,12 @@ export default function ContactForm() {
               id="email"
               name="email"
               required
-              className="w-full px-4 py-3 bg-background border-2 border-border-base rounded-2xl focus:outline-none focus:border-link transition-colors"
+              className="bg-background border-border-base focus:border-link w-full rounded-2xl border-2 px-4 py-3 transition-colors focus:outline-none"
             />
           </div>
 
           <div>
-            <label htmlFor="message" className="block font-medium mb-2">
+            <label htmlFor="message" className="mb-2 block font-medium">
               {t.contact.message}
             </label>
             <textarea
@@ -1983,21 +2043,25 @@ export default function ContactForm() {
               name="message"
               rows={5}
               required
-              className="w-full px-4 py-3 bg-background border-2 border-border-base rounded-2xl focus:outline-none focus:border-link transition-colors resize-none"
+              className="bg-background border-border-base focus:border-link w-full resize-none rounded-2xl border-2 px-4 py-3 transition-colors focus:outline-none"
             />
           </div>
 
           <button
             type="submit"
             disabled={status === 'submitting'}
-            className="w-full bg-surface text-surface-foreground py-3 rounded-2xl font-medium text-lg transition-colors disabled:opacity-60"
+            className="bg-surface text-surface-foreground w-full rounded-2xl py-3 text-lg font-medium transition-colors disabled:opacity-60"
           >
             {status === 'submitting' ? t.contact.submitting : t.contact.submit}
           </button>
 
-          {status === 'success' && <p className="text-success text-center">{t.contact.success}</p>}
+          {status === 'success' && (
+            <p className="text-success text-center">{t.contact.success}</p>
+          )}
           {status === 'error' && (
-            <p className="text-red-600 dark:text-red-400 text-center">{t.contact.error}</p>
+            <p className="text-center text-red-600 dark:text-red-400">
+              {t.contact.error}
+            </p>
           )}
         </form>
       </div>
@@ -2029,6 +2093,7 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
 ## Task 16: SEO — metadata, JSON-LD, sitemap, robots
 
 **Files:**
+
 - Create: `components/person-json-ld.tsx`
 - Create: `app/sitemap.ts`, `app/robots.ts`
 - Modify: `app/layout.tsx`
@@ -2179,12 +2244,14 @@ Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>"
 ## Task 17: Final verification + polish pass
 
 **Files:**
+
 - Modify: any icon/component needing dark-theme color fixes discovered during review.
 - Modify: `CLAUDE.md` (document new architecture).
 
 - [ ] **Step 1: Full lint + format + typecheck + build**
 
 Run:
+
 ```bash
 npx tsc --noEmit
 npm run lint
@@ -2192,11 +2259,13 @@ npm run lint:css
 npm run format:check
 npm run build
 ```
+
 Expected: all pass. Fix any issues (run `npm run format` to auto-fix formatting).
 
 - [ ] **Step 2: Cross-cutting browser QA**
 
 `npm run dev`. For BOTH themes and at 320px / 768px / 1440px / 2500px, screenshot the full page and verify against mockups:
+
 - Theme toggle position (mobile inside navy card, desktop top-right) and correct recoloring of every section, including the inverted Summary panel.
 - Social icons and domain/personal icons are visible in BOTH themes. If any icon is hardcoded to a color that disappears on one theme, update that icon to use `currentColor` (or pass the correct `variant`) and re-screenshot.
 - Language switch updates all copy in all 5 languages; `<html lang>` updates.

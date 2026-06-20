@@ -31,7 +31,7 @@ export const uk: Messages = {
   domains: {
     finance: 'Фінанси',
     insurance: 'Страхування',
-    healthcare: "Охорона здоров’я",
+    healthcare: 'Охорона здоров’я',
     socialNetworks: 'Соціальні мережі',
     education: 'Освіта',
     seo: 'SEO',

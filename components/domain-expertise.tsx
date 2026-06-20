@@ -11,7 +11,10 @@ import SocialNetworksIcon from './icons/social-networks-icon';
 import { domainExpertise, type DomainId } from '@/data/domain-expertise';
 import { useTranslation } from '@/lib/i18n/language-provider';
 
-const iconByDomain: Record<DomainId, React.ComponentType<{ className?: string }>> = {
+const iconByDomain: Record<
+  DomainId,
+  React.ComponentType<{ className?: string }>
+> = {
   finance: FinanceIcon,
   insurance: InsuranceIcon,
   healthcare: HealthcareIcon,
@@ -25,15 +28,15 @@ export default function DomainExpertise() {
   const { t } = useTranslation();
   return (
     <div className="w-full">
-      <h2 className="mb-4 text-2xl font-bold border-b border-border-base">
+      <h2 className="border-border-base mb-4 border-b text-2xl font-bold">
         {t.sections.domainExpertise}
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+      <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
         {domainExpertise.map((id) => {
           const Icon = iconByDomain[id];
           return (
             <div key={id} className="flex items-center space-x-3">
-              <span className="w-8 h-8 flex-shrink-0">
+              <span className="h-8 w-8 flex-shrink-0">
                 <Icon />
               </span>
               <span className="font-medium">{t.domains[id]}</span>

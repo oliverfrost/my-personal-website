@@ -13,7 +13,7 @@ export default function SimpleSwitcher({ label }: SimpleSwitcherProps) {
   const isLight = theme === 'light';
 
   return (
-    <label className="relative inline-flex items-center cursor-pointer gap-2">
+    <label className="relative inline-flex cursor-pointer items-center gap-2">
       <input
         type="checkbox"
         checked={isLight}
@@ -22,12 +22,12 @@ export default function SimpleSwitcher({ label }: SimpleSwitcherProps) {
         aria-label={isLight ? 'Switch to dark theme' : 'Switch to light theme'}
       />
       <span
-        className={`relative w-14 h-8 rounded-full transition-colors duration-200 ease-in-out ${
+        className={`relative h-8 w-14 rounded-full transition-colors duration-200 ease-in-out ${
           isLight ? 'bg-white' : 'bg-slate-600'
         }`}
       >
         <span
-          className={`absolute top-1 w-6 h-6 rounded-full shadow-md transition-transform duration-200 ease-in-out ${
+          className={`absolute top-1 h-6 w-6 rounded-full shadow-md transition-transform duration-200 ease-in-out ${
             isLight ? 'translate-x-6 bg-slate-600' : 'translate-x-1 bg-white'
           }`}
         />

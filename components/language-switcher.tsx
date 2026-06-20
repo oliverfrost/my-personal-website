@@ -11,7 +11,10 @@ export default function LanguageSwitcher() {
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     }
@@ -25,23 +28,28 @@ export default function LanguageSwitcher() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen((v) => !v)}
-        className="flex items-center gap-2 px-3 py-2 text-sm font-medium rounded-md border border-border-base transition-colors"
+        className="border-border-base flex items-center gap-2 rounded-md border px-3 py-2 text-sm font-medium transition-colors"
         aria-expanded={isOpen}
         aria-haspopup="true"
       >
         <span>{current.label}</span>
         <svg
-          className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+          className={`h-4 w-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 9l-7 7-7-7"
+          />
         </svg>
       </button>
 
       {isOpen && (
-        <div className="absolute top-full right-0 mt-1 w-44 bg-background border border-border-base rounded-md z-50 shadow-lg">
+        <div className="bg-background border-border-base absolute top-full right-0 z-50 mt-1 w-44 rounded-md border shadow-lg">
           <ul className="py-1">
             {LOCALES.map((l) => (
               <li key={l.code}>
@@ -50,13 +58,13 @@ export default function LanguageSwitcher() {
                     setLocale(l.code);
                     setIsOpen(false);
                   }}
-                  className={`w-full text-left px-4 py-2 text-sm transition-colors ${
-                    l.code === locale ? 'font-semibold text-link' : ''
+                  className={`w-full px-4 py-2 text-left text-sm transition-colors ${
+                    l.code === locale ? 'text-link font-semibold' : ''
                   }`}
                 >
                   <span className="flex items-center justify-between">
                     <span>{l.label}</span>
-                    <span className="text-xs text-muted">{l.nativeName}</span>
+                    <span className="text-muted text-xs">{l.nativeName}</span>
                   </span>
                 </button>
               </li>
