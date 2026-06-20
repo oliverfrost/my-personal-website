@@ -19,23 +19,23 @@ export default function PersonalInformation() {
 
       <ul className="space-y-3">
         <li className="flex items-center space-x-3">
-          <PersonIcon className="w-6 h-6" variant="dark" />
+          <PersonIcon className="w-6 h-6" />
           <span>{personalInfo.name}</span>
         </li>
         <li className="flex items-center space-x-3">
-          <MapMarkerIcon className="w-6 h-6" variant="dark" />
+          <MapMarkerIcon className="w-6 h-6" />
           <span>{personalInfo.location}</span>
         </li>
         <li className="flex items-center space-x-3">
-          <PhoneIcon className="w-6 h-6" variant="dark" />
+          <PhoneIcon className="w-6 h-6" />
           <a href={personalInfo.phoneHref}>{personalInfo.phone}</a>
         </li>
         <li className="flex items-center space-x-3">
-          <AtIcon className="w-6 h-6" variant="dark" />
+          <AtIcon className="w-6 h-6" />
           <a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a>
         </li>
         <li className="flex items-center space-x-3">
-          <LinkedInIcon className="w-6 h-6" variant="dark" />
+          <LinkedInIcon className="w-6 h-6" />
           <a href={personalInfo.linkedinUrl} target="_blank" rel="noopener noreferrer">
             {personalInfo.linkedinLabel}
           </a>

@@ -11,7 +11,7 @@ import SocialNetworksIcon from './icons/social-networks-icon';
 import { domainExpertise, type DomainId } from '@/data/domain-expertise';
 import { useTranslation } from '@/lib/i18n/language-provider';
 
-const iconByDomain: Record<DomainId, React.ComponentType<{ variant?: 'light' | 'dark' }>> = {
+const iconByDomain: Record<DomainId, React.ComponentType<{ className?: string }>> = {
   finance: FinanceIcon,
   insurance: InsuranceIcon,
   healthcare: HealthcareIcon,
@@ -34,7 +34,7 @@ export default function DomainExpertise() {
           return (
             <div key={id} className="flex items-center space-x-3">
               <span className="w-8 h-8 flex-shrink-0">
-                <Icon variant="dark" />
+                <Icon />
               </span>
               <span className="font-medium">{t.domains[id]}</span>
             </div>

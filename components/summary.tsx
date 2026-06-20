@@ -40,7 +40,7 @@ export default function Summary({ className }: { className?: string }) {
           return (
             <li key={link.id}>
               <a href={link.url} target="_blank" rel="noopener noreferrer">
-                <Icon variant="light" />
+                <Icon />
               </a>
             </li>
           );

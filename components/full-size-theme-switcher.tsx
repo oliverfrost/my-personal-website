@@ -11,12 +11,12 @@ export default function FullSizeThemeSwitcher() {
   return (
     <div className="flex items-center gap-3">
       <span className="flex items-center gap-1">
-        <MoonIcon variant="dark" />
+        <MoonIcon />
         <span>{t.theme.dark}</span>
       </span>
       <SimpleSwitcher />
       <span className="flex items-center gap-1">
-        <SunIcon variant="dark" />
+        <SunIcon />
         <span>{t.theme.light}</span>
       </span>
     </div>
