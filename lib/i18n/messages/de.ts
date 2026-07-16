@@ -21,6 +21,7 @@ export const de: Messages = {
     portfolio: 'Portfolio',
   },
   theme: { dark: 'Dunkles Design', light: 'Helles Design' },
+  phone: { reveal: 'Zum Anzeigen klicken' },
   languageNames: {
     english: 'Englisch',
     ukrainian: 'Ukrainisch',

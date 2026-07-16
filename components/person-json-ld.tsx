@@ -9,11 +9,10 @@ export default function PersonJsonLd() {
     name: personalInfo.name,
     jobTitle: 'Senior Frontend Developer / Team Lead',
     email: `mailto:${personalInfo.email}`,
-    telephone: personalInfo.phone,
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Tallinn',
-      addressCountry: 'EE',
+      addressLocality: 'Barcelona',
+      addressCountry: 'ES',
     },
     url: process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com',
     sameAs: socialLinks.map((s) => s.url),
