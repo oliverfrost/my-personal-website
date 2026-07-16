@@ -21,6 +21,7 @@ export const ru: Messages = {
     portfolio: 'Портфолио',
   },
   theme: { dark: 'Тёмная тема', light: 'Светлая тема' },
+  phone: { reveal: 'Нажмите, чтобы показать' },
   languageNames: {
     english: 'Английский',
     ukrainian: 'Украинский',

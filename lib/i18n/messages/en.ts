@@ -22,6 +22,9 @@ export const en = {
     dark: 'Dark theme',
     light: 'Light theme',
   },
+  phone: {
+    reveal: 'Click to reveal',
+  },
   languageNames: {
     english: 'English',
     ukrainian: 'Ukrainian',

@@ -6,6 +6,7 @@ import PersonIcon from './icons/person';
 import MapMarkerIcon from './icons/map-marker';
 import PhoneIcon from './icons/phone';
 import AtIcon from './icons/at';
+import PhoneReveal from './phone-reveal';
 import { personalInfo } from '@/data/personal';
 import { useTranslation } from '@/lib/i18n/language-provider';
 
@@ -28,7 +29,7 @@ export default function PersonalInformation() {
         </li>
         <li className="flex items-center space-x-3">
           <PhoneIcon className="h-6 w-6" />
-          <a href={personalInfo.phoneHref}>{personalInfo.phone}</a>
+          <PhoneReveal />
         </li>
         <li className="flex items-center space-x-3">
           <AtIcon className="h-6 w-6" />
