@@ -49,7 +49,7 @@ export default function LanguageSwitcher() {
       </button>
 
       {isOpen && (
-        <div className="bg-background border-border-base absolute top-full right-0 z-50 mt-1 w-44 rounded-md border shadow-lg">
+        <div className="bg-background text-foreground border-border-base absolute top-full right-0 z-50 mt-1 w-44 rounded-md border shadow-lg">
           <ul className="py-1">
             {LOCALES.map((l) => (
               <li key={l.code}>
