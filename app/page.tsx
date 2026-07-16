@@ -19,8 +19,9 @@ export default function Home() {
     <main className="mx-auto w-full max-w-[1600px] p-4 lg:flex lg:gap-14">
       {/* Summary: top card on mobile, left sidebar on desktop */}
       <div className="mb-4 lg:mb-0 lg:w-1/3">
-        {/* Mobile-only theme toggle sits inside the navy card */}
-        <div className="bg-surface flex justify-end p-4 pb-0 lg:hidden">
+        {/* Mobile-only language + theme switchers sit inside the navy card */}
+        <div className="bg-surface text-surface-foreground flex items-center justify-end gap-4 p-4 pb-0 lg:hidden">
+          <LanguageSwitcher />
           <SimpleSwitcher />
         </div>
         <Summary />
@@ -31,11 +32,6 @@ export default function Home() {
         <div className="hidden lg:mb-2 lg:flex lg:items-center lg:justify-end lg:gap-4">
           <LanguageSwitcher />
           <FullSizeThemeSwitcher />
-        </div>
-
-        {/* Mobile-only language switcher */}
-        <div className="flex justify-end lg:hidden">
-          <LanguageSwitcher />
         </div>
 
         <Greeting />
