@@ -49,6 +49,7 @@ export const es: Messages = {
     title: 'Contáctame',
     fullName: 'Nombre completo:',
     email: 'Correo electrónico:',
+    invalidEmail: 'Introduce una dirección de correo electrónico válida.',
     message: 'Mensaje:',
     submit: 'Enviar',
     submitting: 'Enviando…',

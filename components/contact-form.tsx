@@ -6,31 +6,37 @@ import { features } from '@/lib/features';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export default function ContactForm() {
   const { t } = useTranslation();
   const [status, setStatus] = useState<Status>('idle');
+  const [emailError, setEmailError] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus('submitting');
 
     const form = e.currentTarget;
     const formData = new FormData(form);
-    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+    const name = String(formData.get('name') ?? '').trim();
+    const email = String(formData.get('email') ?? '').trim();
+    const message = String(formData.get('message') ?? '').trim();
 
-    if (!accessKey) {
-      setStatus('error');
+    if (!EMAIL_REGEX.test(email)) {
+      setEmailError(true);
       return;
     }
-    formData.append('access_key', accessKey);
+    setEmailError(false);
+    setStatus('submitting');
 
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
+      const res = await fetch('/api/contact/', {
         method: 'POST',
-        body: formData,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message }),
       });
       const data = await res.json();
-      if (data.success) {
+      if (res.ok && data.success) {
         setStatus('success');
         form.reset();
       } else {
@@ -82,8 +88,23 @@ export default function ContactForm() {
               id="email"
               name="email"
               required
-              className="bg-background border-border-base focus:border-link w-full rounded-2xl border-2 px-4 py-3 transition-colors focus:outline-none"
+              onChange={() => emailError && setEmailError(false)}
+              aria-invalid={emailError}
+              aria-describedby={emailError ? 'email-error' : undefined}
+              className={`bg-background w-full rounded-2xl border-2 px-4 py-3 transition-colors focus:outline-none ${
+                emailError
+                  ? 'border-red-600 dark:border-red-400'
+                  : 'border-border-base focus:border-link'
+              }`}
             />
+            {emailError && (
+              <p
+                id="email-error"
+                className="mt-2 text-sm text-red-600 dark:text-red-400"
+              >
+                {t.contact.invalidEmail}
+              </p>
+            )}
           </div>
 
           <div>

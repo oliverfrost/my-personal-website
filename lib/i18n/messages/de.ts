@@ -49,6 +49,7 @@ export const de: Messages = {
     title: 'Kontakt',
     fullName: 'Vollständiger Name:',
     email: 'E-Mail:',
+    invalidEmail: 'Bitte gib eine gültige E-Mail-Adresse ein.',
     message: 'Nachricht:',
     submit: 'Absenden',
     submitting: 'Wird gesendet…',

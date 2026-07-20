@@ -49,6 +49,7 @@ export const uk: Messages = {
     title: "Зв'язатися зі мною",
     fullName: "Повне ім'я:",
     email: 'Електронна пошта:',
+    invalidEmail: 'Будь ласка, введіть дійсну електронну адресу.',
     message: 'Повідомлення:',
     submit: 'Надіслати',
     submitting: 'Надсилається…',
