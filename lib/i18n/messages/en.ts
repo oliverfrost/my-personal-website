@@ -55,6 +55,7 @@ export const en = {
     title: 'Contact Me',
     fullName: 'Full Name:',
     email: 'Email:',
+    invalidEmail: 'Please enter a valid email address.',
     message: 'Message:',
     submit: 'Submit',
     submitting: 'Sending…',

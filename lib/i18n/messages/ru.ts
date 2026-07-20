@@ -49,6 +49,7 @@ export const ru: Messages = {
     title: 'Связаться со мной',
     fullName: 'Полное имя:',
     email: 'Электронная почта:',
+    invalidEmail: 'Пожалуйста, введите корректный email-адрес.',
     message: 'Сообщение:',
     submit: 'Отправить',
     submitting: 'Отправляется…',

@@ -6,8 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 npm run dev          # Next.js dev server with Turbopack at http://localhost:3000
-npm run build        # Production build → static export into out/
-npm run start        # Serve a production build
+npm run build        # Production build → .next/ (Vercel server runtime, not a static export)
+npm run start        # Serve the production build (needed to exercise app/api/contact locally)
 npm run lint         # ESLint (flat config: @next/eslint-plugin-next core-web-vitals + typescript-eslint)
 npm run lint:css     # Stylelint over **/*.css
 npm run lint:css:fix # Stylelint autofix
@@ -21,7 +21,7 @@ There is no test suite in this project.
 
 A single-page personal CV/resume site built with **Next.js 16 App Router**, **React 19**, **TypeScript (strict)**, and **Tailwind CSS v4**.
 
-- **Static export.** `next.config.ts` sets `output: 'export'`, `trailingSlash: true`, and `images.unoptimized`. `npm run build` emits a fully static site into `out/` (no server runtime). Avoid Next.js features that require a server (Route Handlers, server actions, dynamic SSR, `next/image` optimization).
+- **Deployed on Vercel with the Next.js server runtime.** `next.config.ts` sets `trailingSlash: true` and `images.unoptimized`; there is no `output: 'export'` — the one server-side piece is `app/api/contact/route.ts` (see Contact form below), which needs a real runtime to keep the Resend API key off the client. Everything else on the page is still static/prerendered; avoid adding further server-only features unless there's a similar hard requirement.
 - **One page, composed of sections.** `app/page.tsx` is the entire site: a responsive layout (navy `Summary` sidebar on desktop / top card on mobile) rendering section components (`Greeting`, `PersonalInformation`, `WorkExperience`, `Education`, `Portfolio`, `ContactForm`, etc.) from `components/`. To add or reorder a CV section, edit `app/page.tsx` and add a component under `components/`.
 - **Separation of copy vs. structural data.** Translatable copy lives in typed dictionaries under `lib/i18n/messages/{en,es,de,uk,ru}.ts`; structural data (skill percentages, dates, language levels, URLs, social links, work/education/portfolio entries) lives in typed modules under `data/`. Components read copy via `useTranslation()` and data from `@/data/*` — they no longer hardcode content inline.
 - **Theme (light/dark).** `lib/theme/theme-provider.tsx` exposes `useTheme()` and toggles a `.dark` class on `<html>`; an anti-FOUC script (`lib/theme/theme-script.ts`) applies the saved/system theme before hydration. Colors are CSS-variable tokens for both themes in `app/globals.css`; components use semantic Tailwind colors (`bg-surface`, `text-foreground`, `border-border-base`, `bg-track`, etc.), not hardcoded hex.
@@ -29,7 +29,7 @@ A single-page personal CV/resume site built with **Next.js 16 App Router**, **Re
 - **Feature flags.** `lib/features.ts` gates optional sections; `features.portfolio` is currently `false`, so the Portfolio section is built but hidden — flip it to `true` to reveal it.
 - **Client components.** Anything using a provider hook (`useTheme`/`useTranslation`) or state/effects is marked `'use client'`. Pure presentational pieces (e.g. `skill-slider.tsx`) are not.
 - **Icons** are individual React components under `components/icons/`. They use `fill/stroke="currentColor"` and inherit the surrounding text color (no `variant` prop) so they adapt to both themes.
-- **Contact form** (`components/contact-form.tsx`) POSTs to Web3Forms using `NEXT_PUBLIC_WEB3FORMS_KEY` (see `.env.local.example`); with no key it shows the error state. Static-export friendly (no backend).
+- **Contact form** (`components/contact-form.tsx`) validates the email field client-side (regex) before submitting, then POSTs JSON to `app/api/contact/route.ts`, which sends the message via Resend to `personalInfo.email` (`data/personal.ts`) using the server-only `RESEND_API_KEY` (see `.env.local.example`); the submitter's address is set as `replyTo`. With no key configured, or if Resend errors, the route returns a failure JSON and the form shows the translated error state.
 - **SEO.** `app/layout.tsx` sets metadata/OpenGraph/Twitter + `metadataBase` from `NEXT_PUBLIC_SITE_URL`; `components/person-json-ld.tsx` injects `Person` JSON-LD; `app/sitemap.ts` and `app/robots.ts` (both `dynamic = 'force-static'`) emit `sitemap.xml`/`robots.txt` on export.
 
 ## Styling

@@ -29,11 +29,11 @@ export default function Summary({ className }: { className?: string }) {
 
   const downloadCV = () => {
     trackEvent('download_cv', {
-      file_name: 'Serhii_Kholodnyi_CV-FullStack-Team-Lead.pdf',
+      file_name: 'Serhii_Kholodnyi_CV_Senior_Frontend_Angular.pdf',
     });
     const link = document.createElement('a');
-    link.href = '/docs/Serhii_Kholodnyi_CV-FullStack-Team-Lead.pdf';
-    link.download = 'Serhii_Kholodnyi_CV-FullStack-Team-Lead.pdf';
+    link.href = '/docs/Serhii_Kholodnyi_CV_Senior_Frontend_Angular.pdf';
+    link.download = 'Serhii_Kholodnyi_CV_Senior_Frontend_Angular.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
