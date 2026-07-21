@@ -3,7 +3,7 @@ import type { Messages } from './en';
 export const ru: Messages = {
   summary: {
     rolePrimary: 'Тимлид',
-    roleSecondary: 'Старший Frontend-разработчик',
+    roleSecondary: 'Старший Frontend-инженер',
     downloadCv: 'Скачать резюме',
   },
   greeting: {

@@ -9,7 +9,7 @@ export const workExperience: WorkExperienceEntry[] = [
   {
     dateRange: 'November 2021 - Present',
     company: 'TurnKey Labs',
-    role: 'Senior Frontend Developer / Team Lead',
+    role: 'Senior Frontend Engineer / Team Lead',
     responsibilities: [
       'Leading a frontend team on multiple client-facing projects',
       'Designing scalable frontend architecture',
@@ -20,7 +20,7 @@ export const workExperience: WorkExperienceEntry[] = [
   {
     dateRange: 'September 2018 - November 2021',
     company: 'DataArt',
-    role: 'Senior Frontend Developer / Team Lead',
+    role: 'Senior Frontend Engineer / Team Lead',
     responsibilities: [
       'Frontend architecture design and implementation',
       'Leading cross-functional frontend teams',
@@ -31,7 +31,7 @@ export const workExperience: WorkExperienceEntry[] = [
   {
     dateRange: 'September 2017 - September 2018',
     company: 'DataArt',
-    role: 'Middle Frontend Developer / Team Lead',
+    role: 'Frontend Engineer / Team Lead',
     responsibilities: [
       'Built and maintained client-side components',
       'Managed small team and sprint planning',
@@ -41,7 +41,7 @@ export const workExperience: WorkExperienceEntry[] = [
   {
     dateRange: 'January 2017 - September 2017',
     company: 'EOS Data Analytics (EOSDA)',
-    role: 'Middle Frontend Developer',
+    role: 'Frontend Engineer',
     responsibilities: [
       'Developed and maintained multiple GIS-related frontend apps',
       'Wrote unit and end-to-end tests',

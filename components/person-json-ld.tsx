@@ -7,7 +7,7 @@ export default function PersonJsonLd() {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: personalInfo.name,
-    jobTitle: 'Senior Frontend Developer / Team Lead',
+    jobTitle: 'Senior Frontend Engineer / Team Lead',
     email: `mailto:${personalInfo.email}`,
     address: {
       '@type': 'PostalAddress',

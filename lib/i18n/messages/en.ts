@@ -1,7 +1,7 @@
 export const en = {
   summary: {
     rolePrimary: 'Team Lead',
-    roleSecondary: 'Senior Frontend Developer',
+    roleSecondary: 'Senior Frontend Engineer',
     downloadCv: 'Download CV',
   },
   greeting: {

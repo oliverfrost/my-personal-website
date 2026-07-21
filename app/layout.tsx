@@ -8,7 +8,7 @@ import Analytics from '@/components/analytics';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com';
 const description =
-  'Serhii Kholodnyi — Senior Frontend Developer and Team Lead with 14+ years in IT. Vue.js, Angular, React, TypeScript, Pinia, and Docker.';
+  'Serhii Kholodnyi — Senior Frontend Engineer and Team Lead with 14+ years in IT. Vue.js, Angular, React, TypeScript, Pinia, and Docker.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
