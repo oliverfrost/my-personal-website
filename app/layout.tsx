@@ -6,7 +6,8 @@ import { LanguageProvider } from '@/lib/i18n/language-provider';
 import PersonJsonLd from '@/components/person-json-ld';
 import Analytics from '@/components/analytics';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://serhiikholodnyi.com';
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://serhiikholodnyi.com';
 const description =
   'Serhii Kholodnyi — Senior Frontend Engineer & Team Lead with 16+ years in IT, 8+ years in front-end development: Angular, TypeScript, JavaScript, NgRx, RxJs, React';
 

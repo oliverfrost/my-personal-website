@@ -14,7 +14,7 @@ export default function PersonJsonLd() {
       addressLocality: 'Barcelona',
       addressCountry: 'ES',
     },
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com',
+    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://serhiikholodnyi.com',
     sameAs: socialLinks.map((s) => s.url),
   };
 
