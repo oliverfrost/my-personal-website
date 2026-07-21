@@ -4,12 +4,12 @@ export interface HardSkill {
 }
 
 export const hardSkills: HardSkill[] = [
-  { skill: 'JavaScript', percentage: 86 },
-  { skill: 'TypeScript', percentage: 80 },
-  { skill: 'Angular', percentage: 80 },
-  { skill: 'HTML', percentage: 90 },
-  { skill: 'CSS', percentage: 76 },
-  { skill: 'React', percentage: 65 },
-  { skill: 'Vue.js', percentage: 55 },
-  { skill: 'Java', percentage: 50 },
+  { skill: 'JavaScript', percentage: 95 },
+  { skill: 'TypeScript', percentage: 93 },
+  { skill: 'Angular', percentage: 98 },
+  { skill: 'HTML', percentage: 91 },
+  { skill: 'CSS/SCSS', percentage: 88 },
+  { skill: 'React', percentage: 76 },
+  { skill: 'Vue.js', percentage: 68 },
+  { skill: 'Java', percentage: 60 },
 ];
