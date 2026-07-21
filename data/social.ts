@@ -1,5 +1,11 @@
 export interface SocialLink {
-  id: 'linkedin' | 'stackoverflow' | 'github' | 'leetcode';
+  id:
+    | 'linkedin'
+    | 'stackoverflow'
+    | 'github'
+    | 'leetcode'
+    | 'facebook'
+    | 'instagram';
   url: string;
 }
 
@@ -11,4 +17,6 @@ export const socialLinks: SocialLink[] = [
   },
   { id: 'github', url: 'https://github.com/oliverfrost' },
   { id: 'leetcode', url: 'https://leetcode.com/u/oliverfrost21/' },
+  { id: 'facebook', url: 'https://www.facebook.com/oliverfrost21' },
+  { id: 'instagram', url: 'https://www.instagram.com/oliverfrost21' },
 ];

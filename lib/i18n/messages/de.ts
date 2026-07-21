@@ -3,12 +3,12 @@ import type { Messages } from './en';
 export const de: Messages = {
   summary: {
     rolePrimary: 'Teamleiter',
-    roleSecondary: 'Senior Full-Stack-Entwickler',
+    roleSecondary: 'Senior Frontend Engineer',
     downloadCv: 'Lebenslauf herunterladen',
   },
   greeting: {
     heading: 'Hallo, ich bin Serhii',
-    body: 'Ich bin Senior Front-End-Entwickler und Teamleiter mit über 14 Jahren Erfahrung in der IT, davon mehr als 6 Jahre in der Front-End-Entwicklung und mehr als 3 Jahre in Führungspositionen. Meine Leidenschaft gilt der Entwicklung robuster, skalierbarer Webanwendungen und der Leitung von Teams zur Lieferung hochwertiger Software. Meine Kernkompetenzen liegen in Vue.js, Angular, Pinia und Docker, ergänzt durch eine solide Grundlage im Testen und Systemsupport.',
+    body: 'Willkommen auf meinem Spielplatz! Ich bin Senior Frontend Engineer und Team Lead mit einem Werdegang, der technischen Support, QA und Frontend-Engineering umfasst. Dieser Weg hat mir eine breite Perspektive auf die Softwareentwicklung gegeben und mir ermöglicht, über die reine Umsetzung hinauszudenken und mich auf Qualität, Wartbarkeit und Nutzererfahrung zu konzentrieren.\n\nMein Hauptschwerpunkt liegt im Angular-Ökosystem, wo ich gerne skalierbare Architekturen entwerfe, die Performance verbessere und große Anwendungen modernisiere. Ich habe außerdem Erfahrung mit React, Vue.js, Node.js und der breiteren Web-Plattform, wodurch ich bei Bedarf im gesamten Produkt-Stack mitwirken kann.\n\nNeben dem Engineering baue ich gerne Teams auf, mentoriere Entwickler und löse komplexe technische Herausforderungen. Ich laufe zur Höchstform auf, wenn ich Produkte erschaffe, die sowohl technisch robust als auch angenehm zu benutzen sind.',
   },
   sections: {
     personalInformation: 'Persönliche Informationen',
@@ -18,6 +18,7 @@ export const de: Messages = {
     workExperience: 'Berufserfahrung',
     education: 'Ausbildung',
     domainExpertise: 'Fachgebiete',
+    hobbies: 'Hobbys',
     portfolio: 'Portfolio',
   },
   theme: { dark: 'Dunkles Design', light: 'Helles Design' },
@@ -37,6 +38,17 @@ export const de: Messages = {
     education: 'Bildung',
     seo: 'SEO',
     computerNetworks: 'Computernetzwerke',
+  },
+  hobbies: {
+    technologiesComputers: 'Technologie & Computer',
+    softwareArchitecture: 'Softwarearchitektur',
+    booksReading: 'Bücher & Lesen',
+    investing: 'Investieren',
+    startups: 'Startups',
+    businessStrategy: 'Unternehmensstrategie',
+    travel: 'Reisen',
+    triathlon: 'Triathlon',
+    biohacking: 'Biohacking & Gesundheitsoptimierung',
   },
   degrees: { master: 'Master', bachelor: 'Bachelor' },
   portfolio: {

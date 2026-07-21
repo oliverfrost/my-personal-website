@@ -1,12 +1,12 @@
 export const en = {
   summary: {
     rolePrimary: 'Team Lead',
-    roleSecondary: 'Senior Full-Stack Developer',
+    roleSecondary: 'Senior Frontend Engineer',
     downloadCv: 'Download CV',
   },
   greeting: {
     heading: "Hi, I'm Serhii",
-    body: "I'm a Senior Front-End Developer and Team Lead with over 14 years of experience in IT, including 6+ years in front-end development and 3+ years in leadership roles. I'm passionate about building robust, scalable web applications and leading teams toward delivering high-quality software. My core strengths lie in Vue.js, Angular, Pinia, and Docker, along with a strong foundation in testing and system support.",
+    body: "Welcome to my playground! I'm a Senior Frontend Engineer and Team Lead with a background spanning technical support, QA, and frontend engineering. That journey gave me a broad perspective on software development, allowing me to think beyond implementation and focus on quality, maintainability, and user experience.\n\nMy primary expertise is the Angular ecosystem, where I enjoy designing scalable architectures, improving performance, and modernizing large applications. I'm also experienced with React, Vue.js, Node.js, and the broader web platform, enabling me to contribute across the full product stack when needed.\n\nBeyond engineering, I enjoy building teams, mentoring developers, and solving complex technical challenges. I'm at my best when creating products that are both technically robust and enjoyable to use.",
   },
   sections: {
     personalInformation: 'Personal Information',
@@ -16,6 +16,7 @@ export const en = {
     workExperience: 'Work Experience',
     education: 'Education',
     domainExpertise: 'Domain Expertise',
+    hobbies: 'Hobbies',
     portfolio: 'Portfolio',
   },
   theme: {
@@ -40,6 +41,17 @@ export const en = {
     education: 'Education',
     seo: 'SEO',
     computerNetworks: 'Computer Networks',
+  },
+  hobbies: {
+    technologiesComputers: 'Technologies & Computers',
+    softwareArchitecture: 'Software Architecture',
+    booksReading: 'Books & Reading',
+    investing: 'Investing',
+    startups: 'Startups',
+    businessStrategy: 'Business Strategy',
+    travel: 'Travel',
+    triathlon: 'Triathlon',
+    biohacking: 'Biohacking & Health Optimization',
   },
   degrees: {
     master: "Master's degree",

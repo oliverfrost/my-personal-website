@@ -8,7 +8,11 @@ export default function Greeting() {
   return (
     <section>
       <h2 className="mb-4 text-xl font-bold uppercase">{t.greeting.heading}</h2>
-      <p className="text-sm">{t.greeting.body}</p>
+      <div className="space-y-3 text-sm">
+        {t.greeting.body.split('\n\n').map((paragraph, index) => (
+          <p key={index}>{paragraph}</p>
+        ))}
+      </div>
     </section>
   );
 }

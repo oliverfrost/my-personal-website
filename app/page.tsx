@@ -7,6 +7,7 @@ import Education from '@/components/education';
 import Greeting from '@/components/greeting';
 import Summary from '@/components/summary';
 import DomainExpertise from '@/components/domain-expertise';
+import Hobbies from '@/components/hobbies';
 import ContactForm from '@/components/contact-form';
 import Portfolio from '@/components/portfolio';
 import FullSizeThemeSwitcher from '@/components/full-size-theme-switcher';
@@ -22,7 +23,7 @@ export default function Home() {
         {/* Mobile-only language + theme switchers sit inside the navy card */}
         <div className="bg-surface text-surface-foreground flex items-center justify-end gap-4 p-4 pb-0 lg:hidden">
           <LanguageSwitcher />
-          <SimpleSwitcher />
+          <SimpleSwitcher onSurface />
         </div>
         <Summary />
       </div>
@@ -50,6 +51,7 @@ export default function Home() {
         <WorkExperience />
         <Education />
         <DomainExpertise />
+        <Hobbies />
         {features.portfolio && <Portfolio />}
         <ContactForm />
       </div>

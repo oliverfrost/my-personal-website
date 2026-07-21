@@ -7,14 +7,14 @@ export default function PersonJsonLd() {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: personalInfo.name,
-    jobTitle: 'Senior Frontend Developer / Team Lead',
+    jobTitle: 'Senior Frontend Engineer / Team Lead',
     email: `mailto:${personalInfo.email}`,
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Barcelona',
       addressCountry: 'ES',
     },
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com',
+    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://serhiikholodnyi.com',
     sameAs: socialLinks.map((s) => s.url),
   };
 
