@@ -5,6 +5,8 @@ import StackOverflowIcon from './icons/stackoverflow';
 import LinkedInIcon from './icons/linkedin';
 import GithubIcon from './icons/github';
 import LeetCodeIcon from './icons/leetcode';
+import FacebookIcon from './icons/facebook';
+import InstagramIcon from './icons/instagram';
 import { socialLinks } from '@/data/social';
 import { personalInfo } from '@/data/personal';
 import { useTranslation } from '@/lib/i18n/language-provider';
@@ -15,6 +17,8 @@ const iconById = {
   stackoverflow: StackOverflowIcon,
   github: GithubIcon,
   leetcode: LeetCodeIcon,
+  facebook: FacebookIcon,
+  instagram: InstagramIcon,
 } as const;
 
 const labelById: Record<string, string> = {
@@ -22,6 +26,8 @@ const labelById: Record<string, string> = {
   stackoverflow: 'Stack Overflow profile',
   github: 'GitHub profile',
   leetcode: 'LeetCode profile',
+  facebook: 'Facebook profile',
+  instagram: 'Instagram profile',
 };
 
 export default function Summary({ className }: { className?: string }) {
