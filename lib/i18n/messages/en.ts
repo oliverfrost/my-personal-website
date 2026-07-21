@@ -16,6 +16,7 @@ export const en = {
     workExperience: 'Work Experience',
     education: 'Education',
     domainExpertise: 'Domain Expertise',
+    hobbies: 'Hobbies',
     portfolio: 'Portfolio',
   },
   theme: {
@@ -40,6 +41,17 @@ export const en = {
     education: 'Education',
     seo: 'SEO',
     computerNetworks: 'Computer Networks',
+  },
+  hobbies: {
+    technologiesComputers: 'Technologies & Computers',
+    softwareArchitecture: 'Software Architecture',
+    booksReading: 'Books & Reading',
+    investing: 'Investing',
+    startups: 'Startups',
+    businessStrategy: 'Business Strategy',
+    travel: 'Travel',
+    triathlon: 'Triathlon',
+    biohacking: 'Biohacking & Health Optimization',
   },
   degrees: {
     master: "Master's degree",

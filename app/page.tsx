@@ -7,6 +7,7 @@ import Education from '@/components/education';
 import Greeting from '@/components/greeting';
 import Summary from '@/components/summary';
 import DomainExpertise from '@/components/domain-expertise';
+import Hobbies from '@/components/hobbies';
 import ContactForm from '@/components/contact-form';
 import Portfolio from '@/components/portfolio';
 import FullSizeThemeSwitcher from '@/components/full-size-theme-switcher';
@@ -50,6 +51,7 @@ export default function Home() {
         <WorkExperience />
         <Education />
         <DomainExpertise />
+        <Hobbies />
         {features.portfolio && <Portfolio />}
         <ContactForm />
       </div>
