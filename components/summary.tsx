@@ -63,6 +63,12 @@ export default function Summary({ className }: { className?: string }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={labelById[link.id]}
+                onClick={() =>
+                  trackEvent(`click_${link.id}`, {
+                    platform: link.id,
+                    url: link.url,
+                  })
+                }
               >
                 <Icon />
               </a>
