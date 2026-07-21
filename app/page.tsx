@@ -23,7 +23,7 @@ export default function Home() {
         {/* Mobile-only language + theme switchers sit inside the navy card */}
         <div className="bg-surface text-surface-foreground flex items-center justify-end gap-4 p-4 pb-0 lg:hidden">
           <LanguageSwitcher />
-          <SimpleSwitcher />
+          <SimpleSwitcher onSurface />
         </div>
         <Summary />
       </div>
